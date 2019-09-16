@@ -7,9 +7,9 @@ public class GunController : MonoBehaviour
     // the offset of the barrel relative to the rest of the gun (mostly relative to the center (of gravity))
     public Vector3 gunbarrelRedOffset; // let's assume that the gun is pointing to the left (as if you're holding a gun with your right hand and inspecting it)
     public Vector3 gunbarrelGreenOffset; // the other barrel
+    public Vector3 gravityVector;
 
     public float gunGizmoRadius;
-
     public float shootingForce;
 
     public GameObject barrelRed;
@@ -20,10 +20,16 @@ public class GunController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("red barrel offstet: " + gunbarrelRedOffset);
+        rb = GetComponent<Rigidbody>();
+        ApplySettings();
+    }
+
+    [ContextMenu("Apply new values")]
+    public void ApplySettings()
+    {
         barrelRed.transform.localPosition = gunbarrelRedOffset;
         barrelGreen.transform.localPosition = gunbarrelGreenOffset;
-        rb = GetComponent<Rigidbody>();
+        Physics.gravity = gravityVector;
     }
 
     // Update is called once per frame

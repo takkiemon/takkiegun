@@ -825,7 +825,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunbarrelRedOffset: {x: -0.5, y: 0.25, z: 0}
   gunbarrelGreenOffset: {x: 0.5, y: -0.25, z: 0}
-  shootingForce: 500
+  gravityVector: {x: 0, y: -0.75, z: 0}
+  gunGizmoRadius: 0.5
+  shootingForce: 75
   barrelRed: {fileID: 993786983}
   barrelGreen: {fileID: 667382729}
 --- !u!65 &1468849333
