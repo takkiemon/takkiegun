@@ -31,40 +31,17 @@ public class GunController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
-            //ShootRed();
             Shoot(barrelRed.transform.localPosition, barrelRed, shootingForce);
         }
         if (Input.GetKeyDown(KeyCode.G))
         {
-            //ShootGreen();
             Shoot(barrelGreen.transform.localPosition, barrelGreen, shootingForce);
         }
     }
-    /*
-    void ShootGreen() // ToDo: fuse the two shooting functions into one (unless it prohibits the player from shooting with multiple barrels)
-    {
-        Vector3 shootingDirection = new Vector3(-gunbarrelGreenOffset.x, 0, 0); // the direction is always opposite to the direction the barrel is facing
-        //rb.AddForceAtPosition((-transform.localPosition).normalized * shootingForce, transform.localPosition + gunBarrelRedOffset);
-        rb.AddForceAtPosition(
-            transform.TransformDirection(shootingDirection.normalized * shootingForce), // TransformDirection converts localspace vectors to worldspace values
-            barrelGreen.transform.position
-            );
-    }
 
-    void ShootRed() // ToDo: fuse the two shooting functions into one (unless it prohibits the player from shooting with multiple barrels)
-    {
-        Vector3 shootingDirection = new Vector3(-gunbarrelRedOffset.x, 0, 0); // the direction is always opposite to the direction the barrel is facing
-        //rb.AddForceAtPosition((-transform.localPosition).normalized * shootingForce, transform.localPosition + gunBarrelRedOffset);
-        rb.AddForceAtPosition(
-            transform.TransformDirection(shootingDirection.normalized * shootingForce), // TransformDirection converts localspace vectors to worldspace values
-            barrelRed.transform.position
-            );
-    }
-    */
     void Shoot(Vector3 gunBarrelOffset, GameObject barrelObject, float shootingForce)
     {
         Vector3 shootingDirection = new Vector3(-gunBarrelOffset.x, 0, 0); // the direction is always opposite to the direction the barrel is facing
-        //rb.AddForceAtPosition((-transform.localPosition).normalized * shootingForce, transform.localPosition + gunBarrelRedOffset);
         rb.AddForceAtPosition(
             transform.TransformDirection(shootingDirection.normalized * shootingForce), // TransformDirection converts localspace vectors to worldspace values
             barrelObject.transform.position
