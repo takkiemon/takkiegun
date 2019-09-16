@@ -9,10 +9,12 @@ public class GunController : MonoBehaviour
     public float gunGizmoRadius;
     public float shootingForce;
 
+    private Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        rb = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -26,13 +28,18 @@ public class GunController : MonoBehaviour
 
     void Shoot()
     {
-        Vector3 shootingDirection = new Vector3(-gunBarrelOffset.x, 0, 0);
-        GetComponent<Rigidbody>().AddForceAtPosition(shootingDirection.normalized * shootingForce, transform.position + gunBarrelOffset);
+        Vector3 shootingDirection = new Vector3(-gunBarrelOffset.x, 0, 0); // the direction is always opposite to the direction the barrel is facing
+        //GetComponent<Rigidbody>().AddForceAtPosition(shootingDirection.normalized * shootingForce, transform.localPosition + gunBarrelOffset);
+        rb.AddForceAtPosition((-transform.localPosition).normalized * shootingForce, transform.localPosition + gunBarrelOffset);
+        GetComponent<Rigidbody>().AddForceAtPosition(
+            transform.TransformDirection(shootingDirection.normalized * shootingForce), // TransformDirection converts localspace vectors to worldspace values
+            transform.localPosition + gunBarrelOffset
+            );
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position + gunBarrelOffset, gunGizmoRadius);
+        Gizmos.DrawSphere(transform.localPosition + gunBarrelOffset, gunGizmoRadius);
     }
 }
