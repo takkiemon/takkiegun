@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class GunController : MonoBehaviour
@@ -12,8 +13,12 @@ public class GunController : MonoBehaviour
     public float gunGizmoRadius;
     public float shootingForce;
 
+    public float maxFuel;
+    public float currentFuel;
+
     public GameObject barrelRed;
     public GameObject barrelGreen;
+    public Text fuelText;
 
     private Rigidbody rb;
 
@@ -30,6 +35,7 @@ public class GunController : MonoBehaviour
         barrelRed.transform.localPosition = gunbarrelRedOffset;
         barrelGreen.transform.localPosition = gunbarrelGreenOffset;
         Physics.gravity = gravityVector;
+        UpdateFuelText();
     }
 
     // Update is called once per frame
@@ -52,6 +58,13 @@ public class GunController : MonoBehaviour
             transform.TransformDirection(shootingDirection.normalized * shootingForce), // TransformDirection converts localspace vectors to worldspace values
             barrelObject.transform.position
             );
+        currentFuel -= shootingForce;
+        UpdateFuelText();
+    }
+
+    void UpdateFuelText()
+    {
+        fuelText.text = "Fuel: " + currentFuel + "/" + maxFuel;
     }
     
     private void OnDrawGizmos()
