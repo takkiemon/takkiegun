@@ -1091,8 +1091,11 @@ MonoBehaviour:
   gravityVector: {x: 0, y: -0.75, z: 0}
   gunGizmoRadius: 0.5
   shootingForce: 75
+  maxFuel: 0
+  currentFuel: 0
   barrelRed: {fileID: 993786983}
   barrelGreen: {fileID: 667382729}
+  fuelText: {fileID: 0}
 --- !u!65 &1468849333
 BoxCollider:
   m_ObjectHideFlags: 0
