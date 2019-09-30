@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Jet : MonoBehaviour
 {
-    public Vector3 gunbarrelOffset;
+    public Vector3 thrusterOffset;
 
     //public int position;
 
-    public float shootingForce;
+    public float thrustForce;
 
-    public ParticleSystem jetParticles;
+    public ParticleSystem particles;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        transform.localPosition = gunbarrelOffset;
+        transform.localPosition = thrusterOffset;
     }
 
     // Update is called once per frame

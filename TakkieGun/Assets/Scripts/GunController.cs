@@ -5,41 +5,19 @@ using UnityEngine;
 
 public class GunController : MonoBehaviour
 {
-    // the offset of the barrel relative to the rest of the gun (mostly relative to the center (of gravity))
-    public Vector3 shipThrusterRedOffset; // let's assume that the gun is pointing to the left (as if you're holding a gun with your right hand and inspecting it)
-    public Vector3 shipThrusterGreenOffset; // the other barrel
-    public Vector3 shipThrusterBlueOffset; // let's assume that the gun is pointing to the left (as if you're holding a gun with your right hand and inspecting it)
-    public Vector3 shipThrusterYellowOffset; // the other barrel
-
-    public float[] offSetHeights; // this array holds the y-values that changes the offsets of the two barrels (for now I only want to change one dimension)
-    public Vector3 gravityVector;
-
-    public int redPosition;
-    public int greenPosition;
-
-    public float gunGizmoRadius;
     public float thrustingForce;
-
-    public ParticleSystem jetRed;
-    public ParticleSystem jetGreen;
-    public ParticleSystem jetBlue;
-    public ParticleSystem jetYellow;
 
     public float maxFuel;
     public float currentFuel;
 
-    public GameObject[] thrusters;
-    public GameObject thrusterRed;
-    public GameObject thrusterGreen;
-    public GameObject thrusterBlue;
-    public GameObject thrusterYellow;
+    public Jet[] thrusters;
 
     public Text fuelText;
 
     private Rigidbody rb;
     private Vector3[] thrusterAxisPositions;
-    private Vector3[] thrusterDiagonalPositions;
     private Vector3[] thrusterAxisEulers;
+    private Vector3[] thrusterDiagonalPositions;
     private Vector3[] thrusterDiagonalEulers;
 
     // Start is called before the first frame update
@@ -47,118 +25,86 @@ public class GunController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         ApplySettings();
-        //redPosition = 0;
-        //greenPosition = 0;
+
+        Physics.gravity = new Vector3(0, 0, 0);
 
         SetThrusterPositionVariables();
         SetAxisThrusters();
-        SetDiagonalThrusters();
-
-        /*
-        offSetHeights = new float[3];
-        offSetHeights[0] = 0f;
-        offSetHeights[1] = -0.25f;
-        offSetHeights[2] = 0.25f;
-        */
+        //SetDiagonalThrusters();
     }
 
     [ContextMenu("Apply new values")]
     public void ApplySettings()
     {
-        thrusterRed.transform.localPosition = shipThrusterRedOffset;
-        thrusterGreen.transform.localPosition = shipThrusterGreenOffset;
-        Physics.gravity = gravityVector;
-        UpdateFuelText();
-    }
-
-    public void ApplySettings(Vector3 redThrusterOffset, Vector3 greenThrusterOffset, Vector3 gravity)
-    {
-        shipThrusterRedOffset = redThrusterOffset;
-        shipThrusterGreenOffset = greenThrusterOffset;
-        gravityVector = gravity;
+        SetAxisThrusters();
         ApplySettings();
-    }
-
-    public void ChangeRedPosition(float newOffset)
-    {
-        shipThrusterRedOffset.y = newOffset;
-    }
-
-    public void ChangeGreenPosition(float newOffset)
-    {
-        shipThrusterGreenOffset.y = newOffset;
+        UpdateFuelText();
+        Debug.Log("test003");
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButton("FireRed"))
+        if (Input.GetButton("Move Down") && thrusters[0] != null) //upper
         {
-            Shoot(thrusterRed.transform.localPosition, thrusterRed, thrustingForce);
-            if (!jetRed.isPlaying)
-                jetRed.Play();
+            Shoot(thrusters[0]);
+            if (!thrusters[0].particles.isPlaying)
+                thrusters[0].particles.Play();
         }
         else
         {
-            if (!jetRed.isStopped)
-                jetRed.Stop();
+            if (!thrusters[0].particles.isStopped)
+                thrusters[0].particles.Stop();
         }
 
-        if (Input.GetButton("FireGreen"))
+        if (Input.GetButton("Move Up") && thrusters[1] != null) //lower
         {
-            Shoot(thrusterGreen.transform.localPosition, thrusterGreen, thrustingForce);
-            if (!jetGreen.isPlaying)
-            {
-                jetGreen.Play();
-            }
+            Shoot(thrusters[1]);
+            if (!thrusters[1].particles.isPlaying)
+                thrusters[1].particles.Play();
         }
         else
         {
-            if (!jetGreen.isStopped)
-            {
-                jetGreen.Stop();
-            }
+            if (!thrusters[1].particles.isStopped)
+                thrusters[1].particles.Stop();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q))
+        if (Input.GetButton("Move Left") && thrusters[2] != null) //right
         {
-            if (redPosition < offSetHeights.Length - 1)
-            {
-                redPosition++;
-            }
-            else
-            {
-                redPosition = 0;
-            }
-
-            ChangeRedPosition(offSetHeights[redPosition]);
+            Shoot(thrusters[2]);
+            if (!thrusters[2].particles.isPlaying)
+                thrusters[2].particles.Play();
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        else
         {
-            if (greenPosition < offSetHeights.Length - 1)
-            {
-                greenPosition++;
-            }
-            else
-            {
-                greenPosition = 0;
-            }
+            if (!thrusters[2].particles.isStopped)
+                thrusters[2].particles.Stop();
+        }
 
-            ChangeGreenPosition(offSetHeights[greenPosition]);
+        if (Input.GetButton("Move Right") && thrusters[3] != null) //left
+        {
+            Shoot(thrusters[3]);
+            if (!thrusters[3].particles.isPlaying)
+                thrusters[3].particles.Play();
+        }
+        else
+        {
+            if (!thrusters[3].particles.isStopped)
+                thrusters[3].particles.Stop();
         }
         ApplySettings();
     }
 
-    void Shoot(Vector3 gunThrusterOffset, GameObject thrusterObject, float thustingForce)
+    void Shoot(Jet thrusterObject)
     {
-        Vector3 shootingDirection = new Vector3(-gunThrusterOffset.x, 0, 0); // the direction is always opposite to the direction the barrel is facing
+        Vector3 shootingDirection = new Vector3(-thrusterObject.transform.localPosition.x, 0, 0); // the direction is always opposite to the direction the barrel is facing
 
         rb.AddForceAtPosition(
-            transform.TransformDirection(shootingDirection.normalized * thustingForce), // TransformDirection converts localspace vectors to worldspace values
+            transform.TransformDirection(shootingDirection.normalized * thrusterObject.thrustForce), // TransformDirection converts localspace vectors to worldspace values
             thrusterObject.transform.position
             );
 
-        currentFuel -= thustingForce;
+        currentFuel -= thrusterObject.thrustForce;
         UpdateFuelText();
     }
 
@@ -181,8 +127,8 @@ public class GunController : MonoBehaviour
         {
             new Vector3(0, 0, 180), //upper
             new Vector3(0, 0, 0), //lower
-            new Vector3(0, 0, -90), //right
-            new Vector3(0, 0, 90) //left
+            new Vector3(0, 0, 90), //right
+            new Vector3(0, 0, -90) //left
         };
 
         thrusterDiagonalPositions = new Vector3[4] 
@@ -206,8 +152,12 @@ public class GunController : MonoBehaviour
     {
         for (int i = 0; i < thrusters.Length; i++)
         {
-            if (thrusters[i] != null)
-                PlaceAxisThrusters(thrusters[i], i);
+            Jet tempThruster = thrusters[i];
+            if (tempThruster != null)
+            {
+                PlaceAxisThrusters(tempThruster, i);
+                tempThruster.thrustForce = thrustingForce;
+            }
         }
     }
 
@@ -215,18 +165,23 @@ public class GunController : MonoBehaviour
     {
         for (int i = 0; i < thrusters.Length; i++)
         {
-            if (thrusters[i] != null)
+            Jet tempThruster = thrusters[i];
+            if (tempThruster != null)
+            {
                 PlaceDiagonalThrusters(thrusters[i], i);
+                tempThruster.thrustForce = thrustingForce;
+            }
         }
     }
 
-    public void PlaceAxisThrusters(GameObject thruster, int positionIndex)
+    public void PlaceAxisThrusters(Jet thruster, int positionIndex)
     {
+        Debug.Log("index: " + positionIndex + ", arrayLength: " + thrusterAxisPositions.Length); // length is 0, because it needs to be initialized
         thruster.transform.localPosition = thrusterAxisPositions[positionIndex];
         thruster.transform.eulerAngles = thrusterAxisEulers[positionIndex];
     }
 
-    public void PlaceDiagonalThrusters(GameObject thruster, int positionIndex)
+    public void PlaceDiagonalThrusters(Jet thruster, int positionIndex)
     {
         thruster.transform.localPosition = thrusterDiagonalPositions[positionIndex];
         thruster.transform.eulerAngles = thrusterDiagonalEulers[positionIndex];

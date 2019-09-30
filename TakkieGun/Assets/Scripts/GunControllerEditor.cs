@@ -14,6 +14,7 @@ public class GunControllerEditor : Editor
         if(GUILayout.Button("Apply Settings"))
         {
             gunScript.ApplySettings();
+            Debug.Log("test002");
         }
     }
 }

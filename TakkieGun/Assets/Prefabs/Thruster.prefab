@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4050056268569130800}
   - component: {fileID: 4050056268569130801}
   - component: {fileID: 4050056268569130802}
+  - component: {fileID: 2634273120684120278}
   m_Layer: 0
-  m_Name: Barrel
+  m_Name: Thruster
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -94,6 +95,21 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!114 &2634273120684120278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4050056268569130812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60a017290a4837e41a59e1fae23d3d68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  thrusterOffset: {x: 0, y: 0, z: 0}
+  thrustForce: 0
+  particles: {fileID: 6134991242572196313}
 --- !u!1001 &5682511988086305437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -211,6 +227,12 @@ PrefabInstance:
 --- !u!4 &6134991242572196315 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2017481293237689158, guid: 02bb36df322fa4948b2fe959b5d21885,
+    type: 3}
+  m_PrefabInstance: {fileID: 5682511988086305437}
+  m_PrefabAsset: {fileID: 0}
+--- !u!198 &6134991242572196313 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 2017481293237689156, guid: 02bb36df322fa4948b2fe959b5d21885,
     type: 3}
   m_PrefabInstance: {fileID: 5682511988086305437}
   m_PrefabAsset: {fileID: 0}
