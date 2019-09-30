@@ -8,6 +8,9 @@ public class GunController : MonoBehaviour
     // the offset of the barrel relative to the rest of the gun (mostly relative to the center (of gravity))
     public Vector3 gunbarrelRedOffset; // let's assume that the gun is pointing to the left (as if you're holding a gun with your right hand and inspecting it)
     public Vector3 gunbarrelGreenOffset; // the other barrel
+    public Vector3 gunbarrelBlueOffset; // let's assume that the gun is pointing to the left (as if you're holding a gun with your right hand and inspecting it)
+    public Vector3 gunbarrelYellowOffset; // the other barrel
+
     public float[] offSetHeights; // this array holds the y-values that changes the offsets of the two barrels (for now I only want to change one dimension)
     public Vector3 gravityVector;
 
@@ -19,12 +22,17 @@ public class GunController : MonoBehaviour
 
     public ParticleSystem jetRed;
     public ParticleSystem jetGreen;
+    public ParticleSystem jetBlue;
+    public ParticleSystem jetYellow;
 
     public float maxFuel;
     public float currentFuel;
 
     public GameObject barrelRed;
     public GameObject barrelGreen;
+    public GameObject barrelBlue;
+    public GameObject barrelYellow;
+
     public Text fuelText;
 
     private Rigidbody rb;
