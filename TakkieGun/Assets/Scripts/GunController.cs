@@ -28,7 +28,6 @@ public class GunController : MonoBehaviour
 
         Physics.gravity = new Vector3(0, 0, 0);
 
-        SetThrusterPositionVariables();
         SetAxisThrusters();
         //SetDiagonalThrusters();
     }
@@ -36,10 +35,9 @@ public class GunController : MonoBehaviour
     [ContextMenu("Apply new values")]
     public void ApplySettings()
     {
+        SetThrusterPositionVariables();
         SetAxisThrusters();
-        ApplySettings();
         UpdateFuelText();
-        Debug.Log("test003");
     }
 
     // Update is called once per frame
