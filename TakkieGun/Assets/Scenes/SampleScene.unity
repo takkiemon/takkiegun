@@ -1082,7 +1082,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e41570f7e6a17b246b737e80a1053251, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thrustingForce: 69
+  thrustingForce: 15
   maxFuel: 0
   currentFuel: 0
   thrusters:

@@ -6,6 +6,7 @@ using UnityEngine;
 public class GunController : MonoBehaviour
 {
     public float thrustingForce;
+    public Vector3 gravtiyVector;
 
     public float maxFuel;
     public float currentFuel;
@@ -26,7 +27,7 @@ public class GunController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         ApplySettings();
 
-        Physics.gravity = new Vector3(0, 0, 0);
+        gravtiyVector = new Vector3(0, 0, 0);
 
         SetAxisThrusters();
         //SetDiagonalThrusters();
@@ -38,6 +39,7 @@ public class GunController : MonoBehaviour
         SetThrusterPositionVariables();
         SetAxisThrusters();
         UpdateFuelText();
+        Physics.gravity = new Vector3(0, 0, 0);
     }
 
     // Update is called once per frame
@@ -95,7 +97,8 @@ public class GunController : MonoBehaviour
 
     void Shoot(Jet thrusterObject)
     {
-        Vector3 shootingDirection = new Vector3(-thrusterObject.transform.localPosition.x, 0, 0); // the direction is always opposite to the direction the barrel is facing
+        Vector3 shootingDirection = new Vector3(-thrusterObject.transform.localPosition.x, -thrusterObject.transform.localPosition.y, 0); // the direction is always opposite to the direction the barrel is facing
+        Debug.Log("thrusterobject localposition: " + thrusterObject.transform.localPosition + ", shootingDirection: " + shootingDirection);
 
         rb.AddForceAtPosition(
             transform.TransformDirection(shootingDirection.normalized * thrusterObject.thrustForce), // TransformDirection converts localspace vectors to worldspace values
