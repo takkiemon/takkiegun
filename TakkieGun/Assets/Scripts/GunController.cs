@@ -48,49 +48,49 @@ public class GunController : MonoBehaviour
         if (Input.GetButton("Move Down") && thrusters[0] != null) //upper
         {
             Shoot(thrusters[0]);
-            if (!thrusters[0].particles.isPlaying)
-                thrusters[0].particles.Play();
+            if (!thrusters[0].workingParticles.isPlaying)
+                thrusters[0].workingParticles.Play();
         }
         else
         {
-            if (!thrusters[0].particles.isStopped)
-                thrusters[0].particles.Stop();
+            if (!thrusters[0].workingParticles.isStopped)
+                thrusters[0].workingParticles.Stop();
         }
 
         if (Input.GetButton("Move Up") && thrusters[1] != null) //lower
         {
             Shoot(thrusters[1]);
-            if (!thrusters[1].particles.isPlaying)
-                thrusters[1].particles.Play();
+            if (!thrusters[1].workingParticles.isPlaying)
+                thrusters[1].workingParticles.Play();
         }
         else
         {
-            if (!thrusters[1].particles.isStopped)
-                thrusters[1].particles.Stop();
+            if (!thrusters[1].workingParticles.isStopped)
+                thrusters[1].workingParticles.Stop();
         }
 
         if (Input.GetButton("Move Left") && thrusters[2] != null) //right
         {
             Shoot(thrusters[2]);
-            if (!thrusters[2].particles.isPlaying)
-                thrusters[2].particles.Play();
+            if (!thrusters[2].workingParticles.isPlaying)
+                thrusters[2].workingParticles.Play();
         }
         else
         {
-            if (!thrusters[2].particles.isStopped)
-                thrusters[2].particles.Stop();
+            if (!thrusters[2].workingParticles.isStopped)
+                thrusters[2].workingParticles.Stop();
         }
 
         if (Input.GetButton("Move Right") && thrusters[3] != null) //left
         {
             Shoot(thrusters[3]);
-            if (!thrusters[3].particles.isPlaying)
-                thrusters[3].particles.Play();
+            if (!thrusters[3].workingParticles.isPlaying)
+                thrusters[3].workingParticles.Play();
         }
         else
         {
-            if (!thrusters[3].particles.isStopped)
-                thrusters[3].particles.Stop();
+            if (!thrusters[3].workingParticles.isStopped)
+                thrusters[3].workingParticles.Stop();
         }
         ApplySettings();
     }
