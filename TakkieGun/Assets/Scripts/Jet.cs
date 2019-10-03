@@ -55,7 +55,8 @@ public class Jet : MonoBehaviour
     void Shoot()
     {
         Vector3 shootingDirection = new Vector3(-gameObject.transform.localPosition.x, -gameObject.transform.localPosition.y, 0); // the direction is always opposite to the direction the barrel is facing
-        
+        Debug.Log("thrusterobject localposition: " + gameObject.transform.localPosition + ", shooting direction: " + shootingDirection);
+        Debug.Log("parent object: " + parentObject.name);
         parentObject.GetComponent<Rigidbody>().AddForceAtPosition(
             transform.TransformDirection(shootingDirection.normalized * thrustForce), // TransformDirection converts localspace vectors to worldspace values
             gameObject.transform.position
