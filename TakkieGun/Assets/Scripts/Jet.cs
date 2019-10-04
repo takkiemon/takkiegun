@@ -8,6 +8,7 @@ public class Jet : MonoBehaviour
     public Vector3 thrusterOffset;
 
     public bool isBroken;
+    private bool isAlreadyBroken;
     //public int position;
 
     public float thrustForce;
@@ -22,6 +23,7 @@ public class Jet : MonoBehaviour
     {
         parentObject = transform.parent.gameObject;
         transform.localPosition = thrusterOffset;
+        isAlreadyBroken = false;
         Activate();
     }
 
@@ -39,6 +41,11 @@ public class Jet : MonoBehaviour
             if (!currentParticles.isStopped)
                 currentParticles.Stop();
         }
+
+        if (isBroken && !isAlreadyBroken)
+        {
+            ShutDown();
+        }
     }
 
     public void Place(Vector3 position)
@@ -55,12 +62,7 @@ public class Jet : MonoBehaviour
     void Shoot()
     {
         Vector3 shootingDirection = new Vector3(-gameObject.transform.localPosition.x, -gameObject.transform.localPosition.y, 0); // the direction is always opposite to the direction the barrel is facing
-        Debug.Log("thrusterobject localposition: " + gameObject.transform.localPosition + ", shooting direction: " + shootingDirection);
-        Debug.Log("parent object: " + parentObject.name);
-        parentObject.GetComponent<Rigidbody>().AddForceAtPosition(
-            transform.TransformDirection(shootingDirection.normalized * thrustForce), // TransformDirection converts localspace vectors to worldspace values
-            gameObject.transform.position
-            );
+        parentObject.GetComponent<Rigidbody>().AddForce(shootingDirection.normalized * thrustForce);
 
         parentObject.GetComponent<GunController>().currentFuel -= thrustForce;
     }
@@ -75,8 +77,10 @@ public class Jet : MonoBehaviour
 
     public void ShutDown()
     {
+        isAlreadyBroken = true;
         currentParticles = smokeParticles;
         isBroken = true;
+        thrustForce = 0f;
         smokeParticles.Play();
         workingParticles.Stop();
     }

@@ -125,7 +125,6 @@ public class GunController : MonoBehaviour
 
     public void PlaceAxisThrusters(Jet thruster, int positionIndex)
     {
-        Debug.Log("index: " + positionIndex + ", arrayLength: " + thrusterAxisPositions.Length); // length is 0, because it needs to be initialized
         thruster.transform.localPosition = thrusterAxisPositions[positionIndex];
         thruster.transform.eulerAngles = thrusterAxisEulers[positionIndex];
     }
