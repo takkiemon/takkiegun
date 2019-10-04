@@ -69,19 +69,18 @@ public class Jet : MonoBehaviour
 
     public void Activate()
     {
+        smokeParticles.Stop();
         currentParticles = workingParticles;
         isBroken = false;
-        smokeParticles.Stop();
-        workingParticles.Play();
+        isAlreadyBroken = false;
     }
 
     public void ShutDown()
     {
         isAlreadyBroken = true;
+        workingParticles.Stop();
         currentParticles = smokeParticles;
         isBroken = true;
-        thrustForce = 0f;
-        smokeParticles.Play();
-        workingParticles.Stop();
+        thrustForce = 5f;
     }
 }
