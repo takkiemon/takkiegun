@@ -5,17 +5,18 @@ using UnityEngine;
 public class OneWayPattern : MonoBehaviour
 {
     public WallPatternManager patternManager;
-    public GameObject[] movingWalls = new GameObject[3];
+    public GameObject[] movingWalls;
     private Vector3 defaultWallPosition;
+
+    public Vector3 wallSpeed;
 
     // Start is called before the first frame update
     void Start()
     {
-        defaultWallPosition = new Vector3(0, 16, 0);
-
-        foreach (GameObject wall in movingWalls)
+        defaultWallPosition = new Vector3(16, 0, 0);
+        for (int i = 0; i < movingWalls.Length; i++)
         {
-            wall.transform.position = defaultWallPosition;
+            movingWalls[i].transform.position = new Vector3(defaultWallPosition.x + i * (movingWalls[i].transform.localScale.x + 1), defaultWallPosition.y + (i * movingWalls[i].transform.localScale.y + 1), defaultWallPosition.z);
         }
     }
 
@@ -23,5 +24,10 @@ public class OneWayPattern : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void GetTheWallMovin()
+    {
+        movingWalls[0].GetComponent<Rigidbody>().velocity = wallSpeed;
     }
 }

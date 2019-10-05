@@ -5,14 +5,14 @@ using UnityEngine;
 public class GroupPattern : MonoBehaviour
 {
     public WallPatternManager patternManager;
-    public GameObject[] movingWalls = new GameObject[3];
+    public GameObject[] movingWalls;
     private Vector3 defaultWallPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-        defaultWallPosition = new Vector3(0, 16, 0);
-
+        defaultWallPosition = new Vector3(16, 0, 0);
+        
         foreach (GameObject wall in movingWalls)
         {
             wall.transform.position = defaultWallPosition;

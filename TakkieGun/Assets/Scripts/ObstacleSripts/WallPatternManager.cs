@@ -10,17 +10,22 @@ public class WallPatternManager : MonoBehaviour
 
     private int currentPattern;
 
-    public GameObject[] movingWalls = new GameObject[5];
+    public MovingWallBehavior[] movingWalls = new MovingWallBehavior[3];
     private Vector3 defaultWallPosition;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        StartPattern(1);
     }
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+
+    public void SetWalls()
     {
         
     }
@@ -39,6 +44,7 @@ public class WallPatternManager : MonoBehaviour
                 oneWayScript.enabled = true;
                 doubleScript.enabled = false;
                 groupScript.enabled = false;
+                oneWayScript.GetTheWallMovin();
                 break;
             case 2:
                 oneWayScript.enabled = false;
