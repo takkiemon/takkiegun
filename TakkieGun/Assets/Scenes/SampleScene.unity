@@ -1613,6 +1613,7 @@ MonoBehaviour:
   - {fileID: 977116747}
   - {fileID: 1094964959}
   fuelText: {fileID: 489056737}
+  collidingBodies: []
 --- !u!65 &1468849333
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1931,6 +1932,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900527087581214339, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_IsKinematic
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900527087581214339, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Mass
+      value: 1e+9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4da42373ee6bbda4dbe55c93baa0ad64, type: 3}

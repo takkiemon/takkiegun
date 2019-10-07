@@ -21,13 +21,15 @@ public class GunController : MonoBehaviour
     private Vector3[] thrusterDiagonalPositions;
     private Vector3[] thrusterDiagonalEulers;
 
+    public List<Rigidbody> collidingBodies;
+
     // Start is called before the first frame update
     void Start()
     {
         ApplySettings();
-
         thrustersSetup();
 
+        collidingBodies = new List<Rigidbody>();
         gravityVector = new Vector3(0, 0, 0);
     }
 
@@ -134,5 +136,16 @@ public class GunController : MonoBehaviour
         thruster.transform.eulerAngles = thrusterDiagonalEulers[positionIndex];
     }
 
+    private void OnCollisionEnter(Collision collision)
+    {
+        collidingBodies.Add(collision.rigidbody);
+    }
 
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collidingBodies.Contains(collision.rigidbody))
+        {
+            collidingBodies.Remove(collision.rigidbody);
+        }
+    }
 }
