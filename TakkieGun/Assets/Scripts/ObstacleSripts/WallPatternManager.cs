@@ -60,4 +60,20 @@ public class WallPatternManager : MonoBehaviour
                 break;
         }
     }
+
+    public void SetMovementVariables(Vector3[] startingPositions, float movementSpeed, int numberOfWalls)
+    {
+        if (startingPositions.Length > numberOfWalls)
+        {
+            Debug.Log("error: startingPositions.Length (" + startingPositions.Length +  ") > numberOfWalls (" + numberOfWalls + ". SetMovementVariables() aborted.");
+            return;
+        } 
+        else if (startingPositions.Length < numberOfWalls)
+        {
+            Debug.Log("warning: startingPositions.Length (" + startingPositions.Length + ") < numberOfWalls (" + numberOfWalls + ", so numberOfWalls is set to " + startingPositions.Length + ". SetMovementVariables() will proceed accordingly.");
+            numberOfWalls = startingPositions.Length;
+        }
+
+
+    }
 }

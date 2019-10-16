@@ -7,7 +7,6 @@ public class GunController : MonoBehaviour
 {
     public float thrustingForce;
     public Vector3 gravityVector;
-
     public float maxFuel;
     public float currentFuel;
 
@@ -134,6 +133,12 @@ public class GunController : MonoBehaviour
     {
         thruster.transform.localPosition = thrusterDiagonalPositions[positionIndex];
         thruster.transform.eulerAngles = thrusterDiagonalEulers[positionIndex];
+    }
+
+    public void OnDeathTrigger(Collider killerObject)
+    {
+        Debug.Log("You died, son. You got hit by " + killerObject.transform.name + ".");
+        // maybe add a foreach() where I can make it debug something along the lines of "you were hit by object A and object B and object C." etc. where all the colliders that are stored in the list will be spelled out.
     }
 
     private void OnCollisionEnter(Collision collision)

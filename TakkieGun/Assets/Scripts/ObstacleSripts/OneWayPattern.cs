@@ -30,4 +30,9 @@ public class OneWayPattern : MonoBehaviour
     {
         movingWalls[0].GetComponent<Rigidbody>().velocity = wallSpeed;
     }
+
+    public void SetMovementVariables(Vector3 startingPosition, float movementSpeed)
+    {
+
+    }
 }
