@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OneWayPattern : WallPattern
+public class WallPattern : MonoBehaviour
 {
+    public WallPatternManager patternManager;
+    public GameObject[] movingWalls;
+    public Vector3 defaultWallPosition;
+
+    public Vector3 wallSpeed;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -17,15 +23,15 @@ public class OneWayPattern : WallPattern
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public override void GetTheWallMovin()
+    public virtual void GetTheWallMovin()
     {
         movingWalls[0].GetComponent<Rigidbody>().velocity = wallSpeed;
     }
 
-    public void SetMovementVariables(Vector3 startingPosition, float movementSpeed)
+    public virtual void SetMovementVariables(Vector3 startingPosition, float movementSpeed)
     {
 
     }

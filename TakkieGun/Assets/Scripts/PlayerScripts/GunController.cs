@@ -129,6 +129,7 @@ public class GunController : MonoBehaviour
         thruster.transform.localPosition = thrusterAxisPositions[positionIndex];
         thruster.transform.eulerAngles = thrusterAxisEulers[positionIndex];
     }
+
     public void PlaceDiagonalThrusters(Jet thruster, int positionIndex)
     {
         thruster.transform.localPosition = thrusterDiagonalPositions[positionIndex];

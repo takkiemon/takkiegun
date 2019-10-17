@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public WallPatternManager wallPatternManager;
-    public string[] patternNames = new string[5];
+    public string[] patternNames;
 
     // Start is called before the first frame update
     void Start()
@@ -19,9 +19,33 @@ public class GameController : MonoBehaviour
         
     }
 
-    [ContextMenu("Set the stuff")]
-    public void SetStuff()
+    [ContextMenu("Set Pattern Names")]
+    public void SetPatternNames()
     {
-        Debug.Log("Perform operation");
+        patternNames = new string[] {
+            "Pattern One",
+            "Pattern Two",
+            "Pattern Three",
+            "Pattern Four"
+        };
+    }
+    public void PatternOne()
+    {
+        wallPatternManager.StartPattern(1);
+    }
+
+    public void PatternTwo()
+    {
+
+    }
+
+    public void PatternThree()
+    {
+
+    }
+
+    public void PatternFour()
+    {
+
     }
 }

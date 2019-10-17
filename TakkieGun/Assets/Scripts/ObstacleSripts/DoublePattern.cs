@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DoublePattern : MonoBehaviour
+public class DoublePattern : WallPattern
 {
     public WallPatternManager patternManager;
     public GameObject[] movingWalls;

@@ -742,6 +742,13 @@ MonoBehaviour:
   - {fileID: 588973837}
   - {fileID: 140838882}
   - {fileID: 1762458565}
+  defaultWallPosition: {x: 0, y: 0, z: 0}
+  wallSpeed: {x: 0, y: 0, z: 0}
+  patternManager: {fileID: 1146300303}
+  movingWalls:
+  - {fileID: 588973837}
+  - {fileID: 140838882}
+  - {fileID: 1762458565}
 --- !u!114 &1146300301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -754,6 +761,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d958af507cd8099469cc107b4d2a4fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  patternManager: {fileID: 1146300303}
+  movingWalls:
+  - {fileID: 588973837}
+  - {fileID: 140838882}
+  - {fileID: 1762458565}
+  defaultWallPosition: {x: 0, y: 0, z: 0}
+  wallSpeed: {x: 0, y: 0, z: 0}
   patternManager: {fileID: 1146300303}
   movingWalls:
   - {fileID: 588973837}
@@ -776,6 +790,7 @@ MonoBehaviour:
   - {fileID: 588973837}
   - {fileID: 140838882}
   - {fileID: 1762458565}
+  defaultWallPosition: {x: 0, y: 0, z: 0}
   wallSpeed: {x: -2, y: 0, z: 0}
 --- !u!114 &1146300303
 MonoBehaviour:
@@ -1188,7 +1203,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   wallPatternManager: {fileID: 1146300303}
-  patternNames: []
+  patternNames:
+  - Pattern One
+  - Pattern Two
+  - Pattern Three
+  - Pattern Four
 --- !u!4 &2132718994
 Transform:
   m_ObjectHideFlags: 0
@@ -1412,16 +1431,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3900527087581214339, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
-        type: 3}
-      propertyPath: m_IsKinematic
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3900527087581214339, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
-        type: 3}
-      propertyPath: m_Mass
-      value: 1e+9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4da42373ee6bbda4dbe55c93baa0ad64, type: 3}

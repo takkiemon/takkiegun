@@ -11,9 +11,21 @@ public class GameControllerEditor : Editor
         DrawDefaultInspector();
 
         GameController gameControllerScript = (GameController)target;
-        if (GUILayout.Button("Do now"))
+        if (GUILayout.Button(gameControllerScript.patternNames[0]))
         {
-            gameControllerScript.SetStuff();
+            gameControllerScript.PatternOne();
+        }
+        if (GUILayout.Button(gameControllerScript.patternNames[1]))
+        {
+            gameControllerScript.PatternTwo();
+        }
+        if (GUILayout.Button(gameControllerScript.patternNames[2]))
+        {
+            gameControllerScript.PatternThree();
+        }
+        if (GUILayout.Button(gameControllerScript.patternNames[3]))
+        {
+            gameControllerScript.PatternFour();
         }
     }
 }
