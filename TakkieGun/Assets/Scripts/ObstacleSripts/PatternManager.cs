@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallPatternManager : MonoBehaviour
+public class PatternManager : MonoBehaviour
 {
+    public int waveNumber;
+
     public OneWayPattern oneWayScript;
     public DoublePattern doubleScript;
     public GroupPattern groupScript;
+    public SinusPattern sinusScript;
 
     private int currentPattern;
 
@@ -21,7 +24,7 @@ public class WallPatternManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartPattern(1);
+        waveNumber = 1;
     }
 
     // Update is called once per frame
@@ -35,7 +38,20 @@ public class WallPatternManager : MonoBehaviour
         
     }
 
-    public void StartPattern(int patternNumber)
+    // starts the relevant wave
+    public void InitiateWave(int waveNo)
+    {
+
+    }
+
+    // should be called after every wave. 
+    // gives feedback on the end of the finished wave and also kicks off the next wave
+    public void WaveChanger()
+    {
+
+    }
+
+    public void StartPattern(int patternNumber) // remove?
     {
         currentPattern = patternNumber;
         switch(patternNumber)

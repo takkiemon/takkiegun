@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public WallPatternManager wallPatternManager;
+    public PatternManager wallPatternManager;
     public string[] patternNames;
 
     // Start is called before the first frame update

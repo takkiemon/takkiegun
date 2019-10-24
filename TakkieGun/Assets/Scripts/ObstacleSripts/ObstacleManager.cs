@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleManager : MonoBehaviour
 {
     public BoundaryWallBehavior boundaryWallsObject;
-    public WallPatternManager wallPatternManager;
+    public PatternManager wallPatternManager;
 
     // Start is called before the first frame update
     void Start()

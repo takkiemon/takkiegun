@@ -687,6 +687,7 @@ GameObject:
   - component: {fileID: 1146300302}
   - component: {fileID: 1146300301}
   - component: {fileID: 1146300300}
+  - component: {fileID: 1146300304}
   m_Layer: 0
   m_Name: ObstacleManager
   m_TagString: Untagged
@@ -737,6 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f373924bc4a0ede4bb265c2d055801a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveNumber: 0
   patternManager: {fileID: 1146300303}
   movingWalls:
   - {fileID: 588973837}
@@ -744,11 +746,6 @@ MonoBehaviour:
   - {fileID: 1762458565}
   defaultWallPosition: {x: 0, y: 0, z: 0}
   wallSpeed: {x: 0, y: 0, z: 0}
-  patternManager: {fileID: 1146300303}
-  movingWalls:
-  - {fileID: 588973837}
-  - {fileID: 140838882}
-  - {fileID: 1762458565}
 --- !u!114 &1146300301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -761,6 +758,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d958af507cd8099469cc107b4d2a4fc1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveNumber: 0
   patternManager: {fileID: 1146300303}
   movingWalls:
   - {fileID: 588973837}
@@ -768,11 +766,6 @@ MonoBehaviour:
   - {fileID: 1762458565}
   defaultWallPosition: {x: 0, y: 0, z: 0}
   wallSpeed: {x: 0, y: 0, z: 0}
-  patternManager: {fileID: 1146300303}
-  movingWalls:
-  - {fileID: 588973837}
-  - {fileID: 140838882}
-  - {fileID: 1762458565}
 --- !u!114 &1146300302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -785,6 +778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b5370312917ed4d91c2e6fc344aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveNumber: 0
   patternManager: {fileID: 1146300303}
   movingWalls:
   - {fileID: 588973837}
@@ -804,9 +798,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a8627ab23f46d40b8946069333aa4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waveNumber: 0
   oneWayScript: {fileID: 1146300302}
   doubleScript: {fileID: 1146300301}
   groupScript: {fileID: 1146300300}
+  sinusScript: {fileID: 0}
   movingWalls:
   - {fileID: 588973838}
   - {fileID: 140838883}
@@ -815,6 +811,23 @@ MonoBehaviour:
   startingAngles: []
   movementDirections: []
   movementSpeeds: []
+--- !u!114 &1146300304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146300297}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12218830ae7e61e40929dccbd06670ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waveNumber: 0
+  patternManager: {fileID: 0}
+  movingWalls: []
+  defaultWallPosition: {x: 0, y: 0, z: 0}
+  wallSpeed: {x: 0, y: 0, z: 0}
 --- !u!1 &1185153056
 GameObject:
   m_ObjectHideFlags: 0
