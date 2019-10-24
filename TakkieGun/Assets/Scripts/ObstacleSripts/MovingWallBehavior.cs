@@ -5,8 +5,6 @@ using UnityEngine;
 public class MovingWallBehavior : MonoBehaviour
 {
     public GameObject[] wallPartitions = new GameObject[2];
-    public float movementSpeed;
-    public Vector3 movingDirection;
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +16,11 @@ public class MovingWallBehavior : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void Setup(Vector3 startingPosition, Vector3 startingAngle, float speed)
+    {
+        gameObject.transform.position = startingPosition;
+        gameObject.transform.eulerAngles = startingAngle;
     }
 }

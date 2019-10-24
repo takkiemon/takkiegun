@@ -8,7 +8,7 @@ public class DoublePattern : WallPattern
     void Start()
     {
         defaultWallPosition = new Vector3(16, 0, 0);
-        foreach (GameObject wall in movingWalls)
+        foreach (MovingWallBehavior wall in movingWalls)
         {
             wall.transform.position = defaultWallPosition;
         }
