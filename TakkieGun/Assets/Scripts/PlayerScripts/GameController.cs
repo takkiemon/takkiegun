@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public PatternManager wallPatternManager;
+    public PatternManager patternManager;
     public string[] patternNames;
 
     // Start is called before the first frame update
@@ -31,21 +31,21 @@ public class GameController : MonoBehaviour
     }
     public void PatternOne()
     {
-        wallPatternManager.StartPattern(1);
+        patternManager.StartPattern(1);
     }
 
     public void PatternTwo()
     {
-
+        patternManager.StartPattern(2);
     }
 
     public void PatternThree()
     {
-
+        patternManager.StartPattern(3);
     }
 
     public void PatternFour()
     {
-
+        patternManager.StartPattern(4);
     }
 }
