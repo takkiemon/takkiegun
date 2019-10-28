@@ -13,6 +13,13 @@ public class GroupPattern : WallPattern
     // Update is called once per frame
     void Update()
     {
-        
+        if (isCurrentPattern)
+        {
+            timePassed += Time.deltaTime;
+            if (timePassed > waveDuration)
+            {
+                WaveIsDone();
+            }
+        }
     }
 }

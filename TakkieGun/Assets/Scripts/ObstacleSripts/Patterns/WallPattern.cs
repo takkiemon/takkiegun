@@ -11,7 +11,12 @@ public class WallPattern : MonoBehaviour
     public Vector3[] startingPositions;
     public Vector3[] startingEulers;
 
+    public float startingDistance;
+    public float distanceBetweenWalls;
     public float wallVelocity;
+    public bool isCurrentPattern = false;
+    public float waveDuration;
+    public float timePassed;
 
     // Start is called before the first frame update
     void Start()
@@ -25,7 +30,14 @@ public class WallPattern : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isCurrentPattern)
+        {
+            timePassed += Time.deltaTime;
+            if (timePassed > waveDuration)
+            {
+                WaveIsDone();
+            }
+        }
     }
 
     public virtual void GetTheWallMoving()
@@ -47,6 +59,7 @@ public class WallPattern : MonoBehaviour
 
     public virtual void Activate(int waveNumber, MovingWallBehavior[] movingWalls, Vector3[] startingPositions, Vector3 defaultPosition, PatternManager patternManager, float wallSpeed)
     {
+        isCurrentPattern = true;
         this.waveNumber = waveNumber;
         this.movingWalls = movingWalls;
         this.startingPositions = startingPositions;
@@ -63,6 +76,7 @@ public class WallPattern : MonoBehaviour
 
     public virtual void WaveIsDone()
     {
+        isCurrentPattern = false;
         patternManager.WaveEnded(waveNumber);
     }
 }

@@ -154,17 +154,33 @@ public class PatternManager : MonoBehaviour
     {
         // some feedback for between waves
         // after the feedback and stuff, start next wave
-        StartPattern(waveNumber + 1);
+        //StartPattern(waveNumber + 1);
+        StartPattern(1);
     }
 
     public void StartWave1() //create a function that will start waves. I'm not sure yet how I'm going to spread the patterns between the wave types that I have thought of 
     {
-        tempMovingWalls = new MovingWallBehavior[12];
-        for (int i = 0; i < 12; i ++)
+        int numberOfWallsForWave1 = 4;
+        tempMovingWalls = new MovingWallBehavior[numberOfWallsForWave1];
+        for (int i = 0; i < numberOfWallsForWave1; i ++)
         {
             tempMovingWalls[i] = movingWalls[i];
         }
+        for (int i = 0; i < 4; i++)
+        {
+            movingWalls[i].guidingHand.SetActive(true);
+        }
         oneWayScript.Activate(waveNumber, tempMovingWalls, startingPositions, defaultWallPosition, this, movementSpeed);
+    }
+
+    public void EndWave1()
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            movingWalls[i].guidingHand.SetActive(false);
+        }
+        oneWayScript.isCurrentPattern = false;
+        WaveEnded(waveNumber);
     }
 
     public void StartWave2() //create a function that will start waves. I'm not sure yet how I'm going to spread the patterns between the wave types that I have thought of 
