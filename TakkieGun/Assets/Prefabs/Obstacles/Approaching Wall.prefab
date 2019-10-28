@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 5855066607134515459}
   - component: {fileID: 8172712429432821382}
   m_Layer: 0
-  m_Name: hand cleaned background
+  m_Name: Guiding Hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5855066607134515459
 Transform:
   m_ObjectHideFlags: 0
@@ -331,8 +331,8 @@ MonoBehaviour:
   wallPartitions:
   - {fileID: 5311698759458762251}
   - {fileID: 5311698759290358759}
-  particleColor: {r: 0, g: 0, b: 0, a: 0}
-  telegraphingParticles: {fileID: 3742450051494582720}
+  wallNumber: 0
+  guidingHand: {fileID: 5300695385701496980}
 --- !u!1 &7347594576630337244
 GameObject:
   m_ObjectHideFlags: 0
@@ -617,7 +617,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2

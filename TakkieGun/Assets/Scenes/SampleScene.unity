@@ -1338,6 +1338,8 @@ MonoBehaviour:
   defaultWallPosition: {x: 0, y: 0, z: 0}
   startingPositions: []
   startingEulers: []
+  startingDistance: 0
+  distanceBetweenWalls: 0
   wallVelocity: 0
 --- !u!114 &1146300301
 MonoBehaviour:
@@ -1357,6 +1359,8 @@ MonoBehaviour:
   defaultWallPosition: {x: 16, y: 0, z: 0}
   startingPositions: []
   startingEulers: []
+  startingDistance: 0
+  distanceBetweenWalls: 0
   wallVelocity: 0
 --- !u!114 &1146300302
 MonoBehaviour:
@@ -1388,8 +1392,9 @@ MonoBehaviour:
   - {x: -90, y: -90, z: 0}
   - {x: 180, y: -90, z: 0}
   - {x: 90, y: -90, z: 0}
+  startingDistance: 20
+  distanceBetweenWalls: 24
   wallVelocity: 5
-  delayBetweenWalls: 15
 --- !u!114 &1146300303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1446,6 +1451,8 @@ MonoBehaviour:
   defaultWallPosition: {x: 0, y: 0, z: 0}
   startingPositions: []
   startingEulers: []
+  startingDistance: 0
+  distanceBetweenWalls: 0
   wallVelocity: 0
 --- !u!114 &1146300305
 MonoBehaviour:

@@ -6,8 +6,7 @@ using static UnityEngine.ParticleSystem;
 public class MovingWallBehavior : MonoBehaviour
 {
     public GameObject[] wallPartitions = new GameObject[2];
-    public int wallNumber;
-
+    public GameObject guidingHand;
     Rigidbody tempRB;
 
     // Start is called before the first frame update
