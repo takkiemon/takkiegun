@@ -1,15 +1,18 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEngine.ParticleSystem;
 
 public class MovingWallBehavior : MonoBehaviour
 {
     public GameObject[] wallPartitions = new GameObject[2];
 
+    Rigidbody tempRB;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        tempRB = transform.GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
@@ -22,5 +25,6 @@ public class MovingWallBehavior : MonoBehaviour
     {
         gameObject.transform.position = startingPosition;
         gameObject.transform.eulerAngles = startingAngle;
+        tempRB.velocity = speed * tempRB.transform.forward;
     }
 }

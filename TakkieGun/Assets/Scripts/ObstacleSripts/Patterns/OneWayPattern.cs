@@ -36,10 +36,10 @@ public class OneWayPattern : WallPattern
     public void StandardPattern() // the pattern that is usually initiated
     {
         startingPositions = new Vector3[] {
-            new Vector3(12, 0, 0),
-            new Vector3(0, -12 - delayBetweenWalls, 0),
-            new Vector3(-12 - 2 * delayBetweenWalls, 0, 0),
-            new Vector3(0, 12 + 3 * delayBetweenWalls, 0)
+            new Vector3(18, 0, 0),
+            new Vector3(0, -18 - delayBetweenWalls, 0),
+            new Vector3(-18 - 2 * delayBetweenWalls, 0, 0),
+            new Vector3(0, 18 + 3 * delayBetweenWalls, 0)
         };
 
         startingEulers = new Vector3[] {
@@ -51,10 +51,13 @@ public class OneWayPattern : WallPattern
 
         for (int i = 0; i < movingWalls.Length; i ++)
         {
+            /*
             movingWalls[i].transform.position = startingPositions[i];
             movingWalls[i].transform.eulerAngles = startingEulers[i];
             Rigidbody tempRB = movingWalls[i].GetComponent<Rigidbody>();
             tempRB.velocity = wallVelocity * tempRB.transform.forward;
+            */
+            movingWalls[i].Setup(startingPositions[i], startingEulers[i], wallVelocity);
         }
     }
 
