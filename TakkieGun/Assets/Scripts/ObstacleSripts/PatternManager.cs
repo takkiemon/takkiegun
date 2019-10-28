@@ -159,8 +159,8 @@ public class PatternManager : MonoBehaviour
 
     public void StartWave1() //create a function that will start waves. I'm not sure yet how I'm going to spread the patterns between the wave types that I have thought of 
     {
-        tempMovingWalls = new MovingWallBehavior[4];
-        for (int i = 0; i < 4; i ++)
+        tempMovingWalls = new MovingWallBehavior[12];
+        for (int i = 0; i < 12; i ++)
         {
             tempMovingWalls[i] = movingWalls[i];
         }

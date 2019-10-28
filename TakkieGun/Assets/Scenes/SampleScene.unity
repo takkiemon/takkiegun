@@ -132,6 +132,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Wall (8) 002
       objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -249,6 +254,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Wall (2) 220
       objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -342,6 +352,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 186603126}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &361681428 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+    type: 3}
+  m_PrefabInstance: {fileID: 575921306}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fa3117b4d4f3f4ca30ef0703b6d114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &438434178
 GameObject:
   m_ObjectHideFlags: 0
@@ -445,6 +467,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Moving Wall (1) 210
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
@@ -663,6 +690,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Wall (10) 202
       objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -794,6 +826,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Moving Wall (3) 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
@@ -1093,6 +1130,18 @@ MonoBehaviour:
   freezeX: 1
   freezeY: 1
   freezeZ: 1
+--- !u!114 &1004937960 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1999638618}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fa3117b4d4f3f4ca30ef0703b6d114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1087129993
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1104,6 +1153,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Moving Wall (5) 021
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
@@ -1361,6 +1415,10 @@ MonoBehaviour:
   - {fileID: 1087129994}
   - {fileID: 1687139417}
   - {fileID: 1989641049}
+  - {fileID: 1271857636}
+  - {fileID: 1882045442}
+  - {fileID: 361681428}
+  - {fileID: 1004937960}
   tempMovingWalls:
   - {fileID: 588973838}
   - {fileID: 140838883}
@@ -1510,6 +1568,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Moving Wall (9) 102
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
@@ -1671,6 +1734,18 @@ MonoBehaviour:
   - {fileID: 438434178}
   - {fileID: 1185153056}
   - {fileID: 1464615750}
+--- !u!114 &1271857636 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+    type: 3}
+  m_PrefabInstance: {fileID: 86553440}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fa3117b4d4f3f4ca30ef0703b6d114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1354586967
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1682,6 +1757,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Moving Wall (4) 020
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
@@ -1883,6 +1963,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Wall (6) 022
       objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2077,6 +2162,18 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1825655083}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1882045442 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+    type: 3}
+  m_PrefabInstance: {fileID: 1221168227}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 07fa3117b4d4f3f4ca30ef0703b6d114, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1883750273 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
@@ -2094,6 +2191,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Moving Wall (7) 012
+      objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
@@ -2212,6 +2314,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Moving Wall (11) 201
       objectReference: {fileID: 0}
+    - target: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: wallNumber
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 5311698759841440733, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2275,7 +2382,7 @@ PrefabInstance:
     - target: {fileID: 3742450051494582720, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3742450051494582720, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
@@ -2285,7 +2392,7 @@ PrefabInstance:
     - target: {fileID: 3742450051494582720, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.b
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3742450051494582720, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
@@ -2295,22 +2402,22 @@ PrefabInstance:
     - target: {fileID: 3742450051494582720, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.b
-      value: 1
+      value: 0.5019608
       objectReference: {fileID: 0}
     - target: {fileID: 3742450051494582720, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.5019608
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3742450051494582720, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key0.r
-      value: 0.5019608
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3742450051494582720, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: ColorModule.gradient.maxGradient.key1.r
-      value: 0.5019608
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4da42373ee6bbda4dbe55c93baa0ad64, type: 3}

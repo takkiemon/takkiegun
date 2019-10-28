@@ -6,6 +6,7 @@ using static UnityEngine.ParticleSystem;
 public class MovingWallBehavior : MonoBehaviour
 {
     public GameObject[] wallPartitions = new GameObject[2];
+    public int wallNumber;
 
     Rigidbody tempRB;
 
@@ -25,6 +26,7 @@ public class MovingWallBehavior : MonoBehaviour
     {
         gameObject.transform.position = startingPosition;
         gameObject.transform.eulerAngles = startingAngle;
+        tempRB = transform.GetComponent<Rigidbody>();
         tempRB.velocity = speed * tempRB.transform.forward;
     }
 }
