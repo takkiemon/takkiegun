@@ -1341,6 +1341,9 @@ MonoBehaviour:
   startingDistance: 0
   distanceBetweenWalls: 0
   wallVelocity: 0
+  isCurrentPattern: 0
+  waveDuration: 0
+  timePassed: 0
 --- !u!114 &1146300301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1362,6 +1365,9 @@ MonoBehaviour:
   startingDistance: 0
   distanceBetweenWalls: 0
   wallVelocity: 0
+  isCurrentPattern: 0
+  waveDuration: 0
+  timePassed: 0
 --- !u!114 &1146300302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1369,7 +1375,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146300297}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 57b5370312917ed4d91c2e6fc344aaf1, type: 3}
   m_Name: 
@@ -1395,6 +1401,9 @@ MonoBehaviour:
   startingDistance: 20
   distanceBetweenWalls: 24
   wallVelocity: 5
+  isCurrentPattern: 0
+  waveDuration: 0
+  timePassed: 0
 --- !u!114 &1146300303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1454,6 +1463,9 @@ MonoBehaviour:
   startingDistance: 0
   distanceBetweenWalls: 0
   wallVelocity: 0
+  isCurrentPattern: 0
+  waveDuration: 0
+  timePassed: 0
 --- !u!114 &1146300305
 MonoBehaviour:
   m_ObjectHideFlags: 0
