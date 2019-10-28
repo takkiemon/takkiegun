@@ -28,10 +28,14 @@ public class OneWayPattern : WallPattern
 
     public override void WaveStarts()
     {
+        timePassed = 0;
         waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity;
         switch (waveNumber)
         {
             case 1:
+                StandardPattern();
+                break;
+            case 2:
                 StandardPattern();
                 break;
             default:
@@ -114,6 +118,13 @@ public class OneWayPattern : WallPattern
     public override void WaveIsDone()
     {
         isCurrentPattern = false;
-        patternManager.EndWave1();
+        if (waveNumber == 1)
+        {
+            patternManager.EndWave1();
+        }
+        else
+        {
+            base.WaveIsDone();
+        }
     }
 }

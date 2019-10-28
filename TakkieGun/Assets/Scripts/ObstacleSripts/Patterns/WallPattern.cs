@@ -57,13 +57,15 @@ public class WallPattern : MonoBehaviour
         }
     }
 
-    public virtual void Activate(int waveNumber, MovingWallBehavior[] movingWalls, Vector3[] startingPositions, Vector3 defaultPosition, PatternManager patternManager, float wallSpeed)
+    public virtual void Activate(int waveNumber, MovingWallBehavior[] movingWalls, Vector3[] startingPositions, Vector3 defaultPosition, float startingDistance, float distanceBetweenWalls, PatternManager patternManager, float wallSpeed)
     {
         isCurrentPattern = true;
         this.waveNumber = waveNumber;
         this.movingWalls = movingWalls;
         this.startingPositions = startingPositions;
         this.defaultWallPosition = defaultPosition;
+        this.startingDistance = startingDistance;
+        this.distanceBetweenWalls = distanceBetweenWalls;
         this.patternManager = patternManager;
         this.wallVelocity = wallSpeed;
         WaveStarts();
