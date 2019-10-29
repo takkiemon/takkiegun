@@ -7,7 +7,6 @@ public class SinusPattern : WallPattern
     public float wavelength;
     public float amplitude; // standard is 3.5, since a wave with that amplitude would cover the whole arena
     public int waveType; // 1 is normal wavy alignment, 2 is crazywave, with vertical movement
-    public int numberOfSubWaves;
 
     private float tempX;
     private float yValuetemp;

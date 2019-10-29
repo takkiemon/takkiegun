@@ -1414,6 +1414,7 @@ MonoBehaviour:
   - {fileID: 1762458566}
   - {fileID: 611644384}
   movementSpeed: 5
+  WaveText: {fileID: 2126127123}
 --- !u!114 &1146300305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2394,6 +2395,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1999638618}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2126127123 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4352036796386569152, guid: f9a11b687d800074e8feb826ce0ba862,
+    type: 3}
+  m_PrefabInstance: {fileID: 6195353405310602094}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2670634865681600652
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2777,6 +2790,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6195353405631619761, guid: f9a11b687d800074e8feb826ce0ba862,
+        type: 3}
+      propertyPath: m_Name
+      value: LifeText
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f9a11b687d800074e8feb826ce0ba862, type: 3}

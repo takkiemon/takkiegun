@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PatternManager : MonoBehaviour
 {
@@ -12,6 +13,8 @@ public class PatternManager : MonoBehaviour
     public MovingWallBehavior[] movingWalls;
     public MovingWallBehavior[] tempMovingWalls;
     public float movementSpeed;
+
+    public Text WaveText;
 
     private Vector3 defaultWallPosition;
 
@@ -38,7 +41,8 @@ public class PatternManager : MonoBehaviour
     public void StartPattern(int waveNumber) // remove?
     {
         this.waveNumber = waveNumber;
-        switch(waveNumber)
+        WaveText.text = "Wave " + waveNumber;
+        switch (waveNumber)
         {
             case 0:
                 Debug.Log("I don't think there should be a wave 0.");
@@ -53,10 +57,10 @@ public class PatternManager : MonoBehaviour
                 StartWave3();
                 break;
             case 4:
-                StartWave4();
+                WaveText.text = "No more waves :( \n You have beaten the game.";
                 break;
             case 5:
-                StartWave5();
+                WaveText.text = "No more waves :( \n You have beaten the game.";
                 break;
             default:
                 break;
