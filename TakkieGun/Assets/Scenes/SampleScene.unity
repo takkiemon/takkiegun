@@ -2404,7 +2404,7 @@ PrefabInstance:
     - target: {fileID: 2670634866427907135, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
       propertyPath: m_Name
-      value: PlayerGun
+      value: PlayerShip
       objectReference: {fileID: 0}
     - target: {fileID: 2670634866427907124, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
@@ -2468,14 +2468,14 @@ PrefabInstance:
       objectReference: {fileID: 489056737}
     - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
-      propertyPath: thrustingForce
-      value: 64
-      objectReference: {fileID: 0}
-    - target: {fileID: 2670634866427907125, guid: 267a4fe9a172adb49936184e07201fd2,
+      propertyPath: lifeText
+      value: 
+      objectReference: {fileID: 489056737}
+    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
-      propertyPath: m_Drag
-      value: 8
-      objectReference: {fileID: 0}
+      propertyPath: patternManager
+      value: 
+      objectReference: {fileID: 1146300303}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 267a4fe9a172adb49936184e07201fd2, type: 3}
 --- !u!1001 &3262933255335901152
