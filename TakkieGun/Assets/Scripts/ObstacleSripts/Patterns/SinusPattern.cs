@@ -27,12 +27,12 @@ public class SinusPattern : WallPattern
 
         switch (waveType)
         {
-            case 0:
+            case 1:
                 wavelength = 24f;
                 distanceBetweenWalls = .8f;
                 wallVelocity = 3f;
                 break;
-            case 1:
+            case 2:
                 wavelength = 16f;
                 distanceBetweenWalls = 0.8f;
                 wallVelocity = 5f;
@@ -82,7 +82,7 @@ public class SinusPattern : WallPattern
                 WaveIsDone();
             }
 
-            if (waveType == 1)
+            if (waveType == 2)
             {
                 for (int i = 0; i < movingWalls.Length; i++)
                 {
@@ -98,7 +98,7 @@ public class SinusPattern : WallPattern
 
     public override void WaveIsDone()
     {
-        if (waveType >= 1)
+        if (waveType >= 2)
         {
             base.WaveIsDone();
         }

@@ -36,7 +36,21 @@ public class OneWayPattern : WallPattern
         {
             case 1:
                 waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity;
-                StandardPattern();
+                if (waveType == 2)
+                {
+                    wallVelocity = 10f;
+                    startingDistance = 24f;
+                    waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity + 1;
+                    StandardPattern();
+                    for (int i = 0; i < movingWalls.Length; i++)
+                    {
+                        movingWalls[i].particles.transform.localPosition = new Vector3(4f, movingWalls[i].particles.transform.localPosition.y, wallVelocity * 1.5f);
+                    }
+                }
+                else
+                {
+                    StandardPattern();
+                }
                 break;
             case 2:
                 if (waveType == 1)
@@ -93,7 +107,7 @@ public class OneWayPattern : WallPattern
             new Vector3(90, -90, 0)
         };
 
-        if (waveType == 2)
+        if (waveNumber == 2 && waveType == 2)
         {
             for (int i = 0; i < movingWalls.Length; i++)
             {
@@ -115,7 +129,7 @@ public class OneWayPattern : WallPattern
                 }
             }
         }
-        else if (waveType == 3)
+        else if (waveNumber == 2 && waveType == 3)
         {
             startingEulers = new Vector3[] {
                 new Vector3(0, -90, 0),
@@ -200,7 +214,23 @@ public class OneWayPattern : WallPattern
     {
         if (waveNumber == 1)
         {
-            patternManager.EndWave1();
+            if (waveType == 1)
+            {
+                for (int i = 0; i < 4; i++)
+                {
+                    movingWalls[i].guidingHand.SetActive(false);
+                }
+            }
+            waveType++;
+            if (waveType >= 3)
+            {
+                isCurrentPattern = false;
+                patternManager.EndWave1();
+            }
+            else
+            {
+                WaveStarts();
+            }
         }
         else
         {

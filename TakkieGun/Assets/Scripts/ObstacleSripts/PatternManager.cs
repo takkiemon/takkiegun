@@ -156,17 +156,13 @@ public class PatternManager : MonoBehaviour
         {
             movingWalls[i].guidingHand.SetActive(true);
         }
+        oneWayScript.waveType = 1;
         oneWayScript.Activate(waveNumber, tempMovingWalls, defaultWallPosition, 20f, 24f, this, movementSpeed);
-        oneWayScript.waveType = 0;
     }
 
     public void EndWave1()
     {
         Debug.Log("Wave 1 has ended.");
-        for (int i = 0; i < 4; i++)
-        {
-            movingWalls[i].guidingHand.SetActive(false);
-        }
         oneWayScript.isCurrentPattern = false;
         WaveEnded(waveNumber);
     }
@@ -189,7 +185,7 @@ public class PatternManager : MonoBehaviour
     {
         StopAllWaves();
         Debug.Log("Wave 3 is started.");
-        sinusScript.waveType = 0;
+        sinusScript.waveType = 1;
         sinusScript.Activate(waveNumber, movingWalls, defaultWallPosition, 20f, this);
     }
 
