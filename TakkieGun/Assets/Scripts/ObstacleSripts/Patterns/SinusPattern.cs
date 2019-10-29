@@ -10,6 +10,7 @@ public class SinusPattern : WallPattern
     public int numberOfSubWaves;
 
     private float tempX;
+    private float randomCosineOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class SinusPattern : WallPattern
     public override void WaveStarts()
     {
         Debug.Log("Sine Pattern started.");
+
+        randomCosineOffset = Random.Range(-1f, 1f);
 
         switch (waveType)
         {

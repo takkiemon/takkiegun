@@ -1379,6 +1379,7 @@ MonoBehaviour:
   isCurrentPattern: 0
   waveDuration: 0
   timePassed: 0
+  waveType: 0
 --- !u!114 &1146300303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1391,7 +1392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a8627ab23f46d40b8946069333aa4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveNumber: 3
+  waveNumber: 1
   oneWayScript: {fileID: 1146300302}
   sinusScript: {fileID: 1146300301}
   movingWalls:

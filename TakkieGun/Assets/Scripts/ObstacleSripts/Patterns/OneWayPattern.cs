@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class OneWayPattern : WallPattern
 {
+    public int waveType;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,16 +30,42 @@ public class OneWayPattern : WallPattern
 
     public override void WaveStarts()
     {
-        Debug.Log("One Way Pattern started.");
+        Debug.Log("One Way Pattern started. stats: waveNo: " + waveNumber + ", wavetype: " + waveType);
         timePassed = 0;
-        waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity;
         switch (waveNumber)
         {
             case 1:
+                waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity;
                 StandardPattern();
                 break;
             case 2:
-                StandardPattern();
+                if (waveType == 1)
+                {
+                    wallVelocity = 14f;
+                    startingDistance = 30f;
+                    waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity + 1;
+                    StandardPattern();
+                    for (int i = 0; i < movingWalls.Length; i++)
+                    {
+                        movingWalls[i].particles.transform.localPosition = new Vector3(4f, movingWalls[i].particles.transform.localPosition.y, wallVelocity * 1.5f);
+                    }
+                }
+                else if (waveType == 2)
+                {
+                    wallVelocity = 7f;
+                    startingDistance = 30f;
+                    distanceBetweenWalls = 16f;
+                    waveDuration = (startingDistance + movingWalls.Length / 2 * distanceBetweenWalls) / wallVelocity + 1; 
+                    StandardPattern();
+                }
+                else if (waveType ==3)
+                {
+                    wallVelocity = 7f;
+                    startingDistance = 30f;
+                    distanceBetweenWalls = 16f;
+                    waveDuration = (startingDistance + movingWalls.Length / 2 * distanceBetweenWalls) / wallVelocity + 1;
+                    StandardPattern();
+                }
                 break;
             default:
                 break;
@@ -46,6 +74,11 @@ public class OneWayPattern : WallPattern
 
     public void StandardPattern() // the pattern that is usually initiated
     {
+        for (int i = 0; i < movingWalls.Length; i++)
+        {
+            movingWalls[i].particles.transform.localPosition = new Vector3(4f, movingWalls[i].particles.transform.localPosition.y, wallVelocity * 1.5f);
+        }
+
         startingPositions = new Vector3[] {
             new Vector3(startingDistance, 0, 0),
             new Vector3(0, -startingDistance - distanceBetweenWalls, 0),
@@ -60,28 +93,75 @@ public class OneWayPattern : WallPattern
             new Vector3(90, -90, 0)
         };
 
-        for (int i = 0; i < movingWalls.Length; i ++)
+        if (waveType == 2)
         {
-            /*
-            movingWalls[i].transform.position = startingPositions[i];
-            movingWalls[i].transform.eulerAngles = startingEulers[i];
-            Rigidbody tempRB = movingWalls[i].GetComponent<Rigidbody>();
-            tempRB.velocity = wallVelocity * tempRB.transform.forward;
-            */
-            switch (i % 4)
+            for (int i = 0; i < movingWalls.Length; i++)
             {
-                case 0:
-                    movingWalls[i].Setup(new Vector3(startingDistance + distanceBetweenWalls * i, Random.Range(-3.5f, 3.5f), 0), startingEulers[i % startingEulers.Length], wallVelocity);
-                    break;
-                case 1:
-                    movingWalls[i].Setup(new Vector3(Random.Range(-3.5f, 3.5f), -startingDistance - distanceBetweenWalls * i, 0), startingEulers[i % startingEulers.Length], wallVelocity);
-                    break;
-                case 2:
-                    movingWalls[i].Setup(new Vector3(-startingDistance - distanceBetweenWalls * i, Random.Range(-3.5f, 3.5f), 0), startingEulers[i % startingEulers.Length], wallVelocity);
-                    break;
-                case 3:
-                    movingWalls[i].Setup(new Vector3(Random.Range(-3.5f, 3.5f), startingDistance + distanceBetweenWalls * i, 0), startingEulers[i % startingEulers.Length], wallVelocity);
-                    break;
+                int tempIndex = i / 2;
+                switch (i % 4)
+                {
+                    case 0:
+                        movingWalls[i].Setup(new Vector3(startingDistance + distanceBetweenWalls * tempIndex, Random.Range(-3.5f, 3.5f), 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                    case 1:
+                        movingWalls[i].Setup(new Vector3(Random.Range(-3.5f, 3.5f), -startingDistance - distanceBetweenWalls * tempIndex, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                    case 2:
+                        movingWalls[i].Setup(new Vector3(-startingDistance - distanceBetweenWalls * tempIndex, Random.Range(-3.5f, 3.5f), 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                    case 3:
+                        movingWalls[i].Setup(new Vector3(Random.Range(-3.5f, 3.5f), startingDistance + distanceBetweenWalls * tempIndex, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                }
+            }
+        }
+        else if (waveType == 3)
+        {
+            startingEulers = new Vector3[] {
+                new Vector3(0, -90, 0),
+                new Vector3(180, -90, 0),
+                new Vector3(-90, -90, 0),
+                new Vector3(90, -90, 0)
+                };
+            for (int i = 0; i < movingWalls.Length; i++)
+            {
+                int tempIndex = i / 2;
+                switch (i % 4)
+                {
+                    case 0:
+                        movingWalls[i].Setup(new Vector3(startingDistance + distanceBetweenWalls * tempIndex, Random.Range(0, 3.5f), 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                    case 1:
+                        movingWalls[i].Setup(new Vector3(-startingDistance - distanceBetweenWalls * tempIndex, Random.Range(-3.5f, 0), 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                    case 2:
+                        movingWalls[i].Setup(new Vector3(Random.Range(-3.5f, 0), -startingDistance - distanceBetweenWalls * tempIndex, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                    case 3:
+                        movingWalls[i].Setup(new Vector3(Random.Range(0, 3.5f), startingDistance + distanceBetweenWalls * tempIndex, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                }
+            }
+        }
+        else
+        {
+            for (int i = 0; i < movingWalls.Length; i++)
+            {
+                switch (i % 4)
+                {
+                    case 0:
+                        movingWalls[i].Setup(new Vector3(startingDistance + distanceBetweenWalls * i, Random.Range(-3.5f, 3.5f), 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                    case 1:
+                        movingWalls[i].Setup(new Vector3(Random.Range(-3.5f, 3.5f), -startingDistance - distanceBetweenWalls * i, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                    case 2:
+                        movingWalls[i].Setup(new Vector3(-startingDistance - distanceBetweenWalls * i, Random.Range(-3.5f, 3.5f), 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                    case 3:
+                        movingWalls[i].Setup(new Vector3(Random.Range(-3.5f, 3.5f), startingDistance + distanceBetweenWalls * i, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                        break;
+                }
             }
         }
     }
@@ -118,14 +198,22 @@ public class OneWayPattern : WallPattern
 
     public override void WaveIsDone()
     {
-        isCurrentPattern = false;
         if (waveNumber == 1)
         {
             patternManager.EndWave1();
         }
         else
         {
-            base.WaveIsDone();
+            waveType++;
+            if (waveType >= 4)
+            {
+                isCurrentPattern = false;
+                base.WaveIsDone();
+            }
+            else
+            {
+                WaveStarts();
+            }
         }
     }
 }
