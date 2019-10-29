@@ -331,7 +331,6 @@ MonoBehaviour:
   wallPartitions:
   - {fileID: 5311698759458762251}
   - {fileID: 5311698759290358759}
-  wallNumber: 0
   guidingHand: {fileID: 5300695385701496980}
 --- !u!1 &7347594576630337244
 GameObject:
@@ -617,7 +616,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -1198,7 +1197,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 7.5
       minScalar: 10
       maxCurve:
         serializedVersion: 2
