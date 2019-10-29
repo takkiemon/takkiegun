@@ -5,11 +5,9 @@ using UnityEngine;
 public class Jet : MonoBehaviour
 {
     public string inputName;
-    public Vector3 thrusterOffset;
 
     public bool isBroken;
     private bool isAlreadyBroken;
-    //public int position;
 
     public float thrustForce;
 
@@ -22,7 +20,6 @@ public class Jet : MonoBehaviour
     void Start()
     {
         parentObject = transform.parent.gameObject;
-        transform.localPosition = thrusterOffset;
         isAlreadyBroken = false;
         Activate();
     }
@@ -46,17 +43,6 @@ public class Jet : MonoBehaviour
         {
             ShutDown();
         }
-    }
-
-    public void Place(Vector3 position)
-    {
-        transform.localPosition = position;
-    }
-
-    public void Place(Vector3 position, Vector3 rotation)
-    {
-        transform.localPosition = position;
-        transform.eulerAngles = rotation;
     }
 
     void Shoot()
