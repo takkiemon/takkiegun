@@ -1413,9 +1413,6 @@ MonoBehaviour:
   - {fileID: 140838883}
   - {fileID: 1762458566}
   - {fileID: 611644384}
-  startingPositions: []
-  startingAngles: []
-  movementDirections: []
   movementSpeed: 5
 --- !u!114 &1146300305
 MonoBehaviour:
