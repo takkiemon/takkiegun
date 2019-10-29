@@ -10,6 +10,7 @@ public class SinusPattern : WallPattern
     public int numberOfSubWaves;
 
     private float tempX;
+    private float yValuetemp;
     private float randomCosineOffset;
 
     // Start is called before the first frame update
@@ -48,19 +49,22 @@ public class SinusPattern : WallPattern
         };
 
         timePassed = 0;
-        waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity + 1.5f;
+        waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity + 3f;
 
         for (int i = 0; i < movingWalls.Length; i++)
         {
             switch (i % 2)
             {
                 case 0:
+                    yValuetemp = Mathf.Cos(((tempX % wavelength) / wavelength + randomCosineOffset) * 2f * Mathf.PI) * amplitude;
                     tempX = startingDistance + distanceBetweenWalls * i;
-                    movingWalls[i].Setup(new Vector3(tempX, Mathf.Cos((tempX % wavelength) / wavelength * 2f * Mathf.PI) * amplitude, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                    Debug.Log("cosine offset: " + randomCosineOffset + "y-value: " + yValuetemp);
+                    movingWalls[i].Setup(new Vector3(tempX, yValuetemp, 0f), startingEulers[i % startingEulers.Length], wallVelocity);
                     break;
                 case 1:
+                    yValuetemp = Mathf.Cos(((tempX % wavelength) / wavelength - randomCosineOffset) * 2f * Mathf.PI) * amplitude;
                     tempX = -startingDistance - distanceBetweenWalls * (i - 1);
-                    movingWalls[i].Setup(new Vector3(tempX, Mathf.Cos((tempX % wavelength) / wavelength * 2f * Mathf.PI) * amplitude, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                    movingWalls[i].Setup(new Vector3(tempX, yValuetemp, 0f), startingEulers[i % startingEulers.Length], wallVelocity);
                     break;
             }
         }
@@ -82,7 +86,7 @@ public class SinusPattern : WallPattern
             {
                 for (int i = 0; i < movingWalls.Length; i++)
                 {
-                    movingWalls[i].transform.position = new Vector3(movingWalls[i].transform.position.x, Mathf.Cos((movingWalls[i].transform.position.x % wavelength) / wavelength * 2f * Mathf.PI) * amplitude, movingWalls[i].transform.position.z);
+                    movingWalls[i].transform.position = new Vector3(movingWalls[i].transform.position.x, Mathf.Cos(((movingWalls[i].transform.position.x % wavelength) / wavelength + randomCosineOffset) * 2f * Mathf.PI) * amplitude, movingWalls[i].transform.position.z);
                 }
             }
         }

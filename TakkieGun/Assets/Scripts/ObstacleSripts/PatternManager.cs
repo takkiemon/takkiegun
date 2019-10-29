@@ -9,11 +9,8 @@ public class PatternManager : MonoBehaviour
     public OneWayPattern oneWayScript;
     public SinusPattern sinusScript;
 
-    public MovingWallBehavior[] movingWalls = new MovingWallBehavior[3];
+    public MovingWallBehavior[] movingWalls;
     public MovingWallBehavior[] tempMovingWalls;
-    public Vector3[] startingPositions;
-    public Vector3[] startingAngles;
-    public Vector3[] movementDirections;
     public float movementSpeed;
 
     private Vector3 defaultWallPosition;
@@ -159,7 +156,7 @@ public class PatternManager : MonoBehaviour
         {
             movingWalls[i].guidingHand.SetActive(true);
         }
-        oneWayScript.Activate(waveNumber, tempMovingWalls, startingPositions, defaultWallPosition, 20f, 24f, this, movementSpeed);
+        oneWayScript.Activate(waveNumber, tempMovingWalls, defaultWallPosition, 20f, 24f, this, movementSpeed);
         oneWayScript.waveType = 0;
     }
 
@@ -185,7 +182,7 @@ public class PatternManager : MonoBehaviour
             tempMovingWalls[i] = movingWalls[i];
         }
         oneWayScript.waveType = 1;
-        oneWayScript.Activate(waveNumber, tempMovingWalls, startingPositions, defaultWallPosition, 20f, 18f, this, movementSpeed);
+        oneWayScript.Activate(waveNumber, tempMovingWalls, defaultWallPosition, 20f, 18f, this, movementSpeed);
     }
 
     public void StartWave3() //create a function that will start waves. I'm not sure yet how I'm going to spread the patterns between the wave types that I have thought of 
@@ -193,14 +190,14 @@ public class PatternManager : MonoBehaviour
         StopAllWaves();
         Debug.Log("Wave 3 is started.");
         sinusScript.waveType = 0;
-        sinusScript.Activate(waveNumber, movingWalls, startingPositions, defaultWallPosition, 20f, this);
+        sinusScript.Activate(waveNumber, movingWalls, defaultWallPosition, 20f, this);
     }
 
     public void StartWave4() //create a function that will start waves. I'm not sure yet how I'm going to spread the patterns between the wave types that I have thought of 
     {
         StopAllWaves();
         Debug.Log("Wave 4 is started.");
-        oneWayScript.Activate(waveNumber, movingWalls, startingPositions, defaultWallPosition, 20f, 18f, this, movementSpeed);
+        oneWayScript.Activate(waveNumber, movingWalls, defaultWallPosition, 20f, 18f, this, movementSpeed);
     }
 
     public void StartWave5()
@@ -213,14 +210,14 @@ public class PatternManager : MonoBehaviour
         {
             tempMovingWalls[i] = movingWalls[i];
         }
-        oneWayScript.Activate(waveNumber, tempMovingWalls, startingPositions, defaultWallPosition, 20f, 18f, this, movementSpeed * 2);
+        oneWayScript.Activate(waveNumber, tempMovingWalls, defaultWallPosition, 20f, 18f, this, movementSpeed * 2);
     }
 
     public void StartUltraWave(int waveNumber)
     {
         StopAllWaves();
         Debug.Log("Wave Ultra is started.");
-        sinusScript.Activate(waveNumber, movingWalls, startingPositions, defaultWallPosition, 20f, 18f, this, movementSpeed);
+        sinusScript.Activate(waveNumber, movingWalls, defaultWallPosition, 20f, 18f, this, movementSpeed);
         // some cool random advanced behavior with increasing speeds and stuff to sorta make it go endless.
     }
 
