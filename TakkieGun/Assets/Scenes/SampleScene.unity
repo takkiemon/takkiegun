@@ -1334,13 +1334,15 @@ MonoBehaviour:
   startingPositions: []
   startingEulers: []
   startingDistance: 0
-  distanceBetweenWalls: 2
+  distanceBetweenWalls: 0.8
   wallVelocity: 5
   isCurrentPattern: 0
   waveDuration: 0
   timePassed: 0
-  waveLength: 8
+  wavelength: 0
   amplitude: 3.5
+  waveType: 0
+  numberOfSubWaves: 0
 --- !u!114 &1146300302
 MonoBehaviour:
   m_ObjectHideFlags: 0
