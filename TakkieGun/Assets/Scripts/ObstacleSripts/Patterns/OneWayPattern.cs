@@ -28,6 +28,7 @@ public class OneWayPattern : WallPattern
 
     public override void WaveStarts()
     {
+        Debug.Log("One Way Pattern started.");
         timePassed = 0;
         waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity;
         switch (waveNumber)

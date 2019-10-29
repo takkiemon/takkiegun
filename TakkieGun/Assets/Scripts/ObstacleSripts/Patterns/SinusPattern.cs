@@ -4,13 +4,63 @@ using UnityEngine;
 
 public class SinusPattern : WallPattern
 {
-    private Rigidbody rb;
-    public float waveCycleLength;
+    public float wavelength;
+    public float amplitude; // standard is 3.5, since a wave with that amplitude would cover the whole arena
+    public int waveType; // 1 is normal wavy alignment, 2 is crazywave, with vertical movement
+    public int numberOfSubWaves;
+
+    private float tempX;
 
     // Start is called before the first frame update
     void Start()
     {
         
+    }
+
+    public override void WaveStarts()
+    {
+        Debug.Log("Sine Pattern started.");
+
+        switch (waveType)
+        {
+            case 0:
+                wavelength = 24f;
+                distanceBetweenWalls = .8f;
+                wallVelocity = 3f;
+                break;
+            case 1:
+                wavelength = 16f;
+                distanceBetweenWalls = 0.8f;
+                wallVelocity = 5f;
+                for (int i = 0; i < movingWalls.Length; i++)
+                {
+                    movingWalls[i].particles.transform.localPosition = new Vector3(4f, movingWalls[i].particles.transform.localPosition.y, wavelength);
+                }
+                break;
+        }
+
+        startingEulers = new Vector3[] {
+            new Vector3(0, -90, 0),
+            new Vector3(180, -90, 0),
+        };
+
+        timePassed = 0;
+        waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity + 1.5f;
+
+        for (int i = 0; i < movingWalls.Length; i++)
+        {
+            switch (i % 2)
+            {
+                case 0:
+                    tempX = startingDistance + distanceBetweenWalls * i;
+                    movingWalls[i].Setup(new Vector3(tempX, Mathf.Cos((tempX % wavelength) / wavelength * 2f * Mathf.PI) * amplitude, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                    break;
+                case 1:
+                    tempX = -startingDistance - distanceBetweenWalls * (i - 1);
+                    movingWalls[i].Setup(new Vector3(tempX, Mathf.Cos((tempX % wavelength) / wavelength * 2f * Mathf.PI) * amplitude, 0), startingEulers[i % startingEulers.Length], wallVelocity);
+                    break;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -21,14 +71,34 @@ public class SinusPattern : WallPattern
             timePassed += Time.deltaTime;
             if (timePassed > waveDuration)
             {
+                Debug.Log("Sine Pattern ended.");
                 WaveIsDone();
             }
-        }
 
-        movingWalls[0].transform.position = new Vector3(movingWalls[0].transform.position.x, Mathf.Cos((movingWalls[0].transform.position.x % waveCycleLength) / waveCycleLength * 2f * Mathf.PI) * 3.5f, movingWalls[0].transform.position.z);
+            if (waveType == 1)
+            {
+                for (int i = 0; i < movingWalls.Length; i++)
+                {
+                    movingWalls[i].transform.position = new Vector3(movingWalls[i].transform.position.x, Mathf.Cos((movingWalls[i].transform.position.x % wavelength) / wavelength * 2f * Mathf.PI) * amplitude, movingWalls[i].transform.position.z);
+                }
+            }
+        }
         /*
         Debug.Log("x: " + movingWalls[0].transform.position.x + ", Cos: " + Mathf.Cos((movingWalls[0].transform.position.x % 8) / 8 * 2f * Mathf.PI) + ", y: " + Mathf.Cos((movingWalls[0].transform.position.x % 8) / 8 * 2f * Mathf.PI) * 3.5f + ".");
         rb.velocity = new Vector3 (rb.velocity.x, Mathf.Cos((movingWalls[0].transform.position.x % 8) / 8 * 2f * Mathf.PI) * 3.5f, rb.velocity.z);
         */
+    }
+
+    public override void WaveIsDone()
+    {
+        if (waveType >= 1)
+        {
+            base.WaveIsDone();
+        }
+        else
+        {
+            waveType++;
+            WaveStarts();
+        }
     }
 }
