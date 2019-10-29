@@ -62,7 +62,7 @@ public class PatternManager : MonoBehaviour
                 Debug.Log("I don't think there should be a wave 0.");
                 break;
             case 1:
-                StartWave1();
+                StartWave3();
                 break;
             case 2:
                 StartWave2();

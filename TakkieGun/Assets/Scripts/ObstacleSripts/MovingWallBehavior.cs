@@ -7,6 +7,7 @@ public class MovingWallBehavior : MonoBehaviour
 {
     public GameObject[] wallPartitions = new GameObject[2];
     public GameObject guidingHand;
+    public GameObject particles;
     Rigidbody tempRB;
 
     // Start is called before the first frame update

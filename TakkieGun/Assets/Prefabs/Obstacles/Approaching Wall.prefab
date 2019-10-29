@@ -332,6 +332,7 @@ MonoBehaviour:
   - {fileID: 5311698759458762251}
   - {fileID: 5311698759290358759}
   guidingHand: {fileID: 5300695385701496980}
+  particles: {fileID: 7347594576630337244}
 --- !u!1 &7347594576630337244
 GameObject:
   m_ObjectHideFlags: 0
