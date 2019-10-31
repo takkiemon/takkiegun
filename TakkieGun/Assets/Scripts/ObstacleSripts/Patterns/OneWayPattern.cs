@@ -32,6 +32,8 @@ public class OneWayPattern : WallPattern
     {
         Debug.Log("One Way Pattern started. stats: waveNo: " + waveNumber + ", wavetype: " + waveType);
         timePassed = 0;
+        levelText.text = "Level " + waveNumber;
+        waveText.text = "Wave " + waveType;
         switch (waveNumber)
         {
             case 1:

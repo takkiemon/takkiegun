@@ -23,6 +23,8 @@ public class SinusPattern : WallPattern
         Debug.Log("Sine Pattern started.");
 
         randomCosineOffset = Random.Range(-1f, 1f);
+        levelText.text = "Level " + waveNumber;
+        waveText.text = "Wave " + waveType;
 
         switch (waveType)
         {

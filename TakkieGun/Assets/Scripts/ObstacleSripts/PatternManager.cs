@@ -14,7 +14,8 @@ public class PatternManager : MonoBehaviour
     public MovingWallBehavior[] tempMovingWalls;
     public float movementSpeed;
 
-    public Text WaveText;
+    public Text levelText;
+    public Text waveText;
 
     private Vector3 defaultWallPosition;
 
@@ -41,7 +42,7 @@ public class PatternManager : MonoBehaviour
     public void StartPattern(int waveNumber) // remove?
     {
         this.waveNumber = waveNumber;
-        WaveText.text = "Wave " + waveNumber;
+        levelText.text = "Level " + waveNumber + "\nWave 1";
         switch (waveNumber)
         {
             case 0:
@@ -57,10 +58,10 @@ public class PatternManager : MonoBehaviour
                 StartWave3();
                 break;
             case 4:
-                WaveText.text = "No more waves :( \n You have beaten the game.";
+                levelText.text = "No more waves :( \n You have beaten the game.";
                 break;
             case 5:
-                WaveText.text = "No more waves :( \n You have beaten the game.";
+                levelText.text = "No more waves :( \n You have beaten the game.";
                 break;
             default:
                 break;
@@ -161,6 +162,8 @@ public class PatternManager : MonoBehaviour
             movingWalls[i].guidingHand.SetActive(true);
         }
         oneWayScript.waveType = 1;
+        oneWayScript.levelText = levelText;
+        oneWayScript.waveText = waveText;
         oneWayScript.Activate(waveNumber, tempMovingWalls, defaultWallPosition, 20f, 24f, this, movementSpeed);
     }
 
@@ -182,6 +185,8 @@ public class PatternManager : MonoBehaviour
             tempMovingWalls[i] = movingWalls[i];
         }
         oneWayScript.waveType = 1;
+        oneWayScript.levelText = levelText;
+        oneWayScript.waveText = waveText;
         oneWayScript.Activate(waveNumber, tempMovingWalls, defaultWallPosition, 20f, 18f, this, movementSpeed);
     }
 
@@ -190,6 +195,8 @@ public class PatternManager : MonoBehaviour
         StopAllWaves();
         Debug.Log("Wave 3 is started.");
         sinusScript.waveType = 1;
+        sinusScript.levelText = levelText;
+        sinusScript.waveText = waveText;
         sinusScript.Activate(waveNumber, movingWalls, defaultWallPosition, 20f, this);
     }
 
@@ -197,6 +204,8 @@ public class PatternManager : MonoBehaviour
     {
         StopAllWaves();
         Debug.Log("Wave 4 is started.");
+        oneWayScript.levelText = levelText;
+        oneWayScript.waveText = waveText;
         oneWayScript.Activate(waveNumber, movingWalls, defaultWallPosition, 20f, 18f, this, movementSpeed);
     }
 
@@ -210,6 +219,8 @@ public class PatternManager : MonoBehaviour
         {
             tempMovingWalls[i] = movingWalls[i];
         }
+        oneWayScript.levelText = levelText;
+        oneWayScript.waveText = waveText;
         oneWayScript.Activate(waveNumber, tempMovingWalls, defaultWallPosition, 20f, 18f, this, movementSpeed * 2);
     }
 

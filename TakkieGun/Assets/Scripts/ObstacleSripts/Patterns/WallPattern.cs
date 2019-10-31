@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WallPattern : MonoBehaviour
 {
@@ -17,6 +18,10 @@ public class WallPattern : MonoBehaviour
     public bool isCurrentPattern = false;
     public float waveDuration;
     public float timePassed;
+
+    [HideInInspector]
+    public Text levelText;
+    public Text waveText;
 
     // Start is called before the first frame update
     void Start()
