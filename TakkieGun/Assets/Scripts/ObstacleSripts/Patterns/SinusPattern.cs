@@ -54,17 +54,18 @@ public class SinusPattern : WallPattern
 
         for (int i = 0; i < movingWalls.Length; i++)
         {
+            Debug.Log(tempX);
             switch (i % 2)
             {
                 case 0:
-                    yValuetemp = Mathf.Cos(((tempX % wavelength) / wavelength + randomCosineOffset) * 2f * Mathf.PI) * amplitude;
                     tempX = startingDistance + distanceBetweenWalls * i;
+                    yValuetemp = Mathf.Cos(((tempX % wavelength) / wavelength + randomCosineOffset) * 2f * Mathf.PI) * amplitude;
                     Debug.Log("cosine offset: " + randomCosineOffset + "y-value: " + yValuetemp);
                     movingWalls[i].Setup(new Vector3(tempX, yValuetemp, 0f), startingEulers[i % startingEulers.Length], wallVelocity);
                     break;
                 case 1:
-                    yValuetemp = Mathf.Cos(((tempX % wavelength) / wavelength - randomCosineOffset) * 2f * Mathf.PI) * amplitude;
                     tempX = -startingDistance - distanceBetweenWalls * (i - 1);
+                    yValuetemp = Mathf.Cos(((tempX % wavelength) / wavelength - randomCosineOffset) * 2f * Mathf.PI) * amplitude;
                     movingWalls[i].Setup(new Vector3(tempX, yValuetemp, 0f), startingEulers[i % startingEulers.Length], wallVelocity);
                     break;
             }
