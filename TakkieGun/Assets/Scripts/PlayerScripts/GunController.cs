@@ -99,7 +99,7 @@ public class GunController : MonoBehaviour
         if (currentLives <= 0)
         {
             currentLives = maxLives;
-            patternManager.StartPattern(patternManager.waveNumber);
+            patternManager.StartPattern(patternManager.levelNumber);
         }
         // maybe add a foreach() where I can make it debug something along the lines of "you were hit by object A and object B and object C." etc. where all the colliders that are stored in the list will be spelled out.
     }

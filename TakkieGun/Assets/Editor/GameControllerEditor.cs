@@ -27,5 +27,20 @@ public class GameControllerEditor : Editor
         {
             gameControllerScript.PatternFour();
         }
+
+        DrawDefaultInspector();
+
+        if (GUILayout.Button("test001"))
+        {
+            Debug.Log("testing 001");
+        }
+        if (GUILayout.Button("test002"))
+        {
+            Debug.Log("testing 002");
+        }
+        if (GUILayout.Button("test003"))
+        {
+            Debug.Log("testing 003");
+        }
     }
 }

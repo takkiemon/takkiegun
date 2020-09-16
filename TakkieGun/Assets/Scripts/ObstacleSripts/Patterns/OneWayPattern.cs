@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class OneWayPattern : WallPattern
 {
-    public int waveType;
+    public int waveNumber;
 
     // Start is called before the first frame update
     void Start()
@@ -30,15 +30,15 @@ public class OneWayPattern : WallPattern
 
     public override void WaveStarts()
     {
-        Debug.Log("One Way Pattern started. stats: waveNo: " + waveNumber + ", wavetype: " + waveType);
+        Debug.Log("One Way Pattern started. stats: Level: " + levelNumber + ", Wave: " + waveNumber);
         timePassed = 0;
-        levelText.text = "Level " + waveNumber;
-        waveText.text = "Wave " + waveType;
-        switch (waveNumber)
+        levelText.text = "Level " + levelNumber;
+        waveText.text = "Wave " + waveNumber;
+        switch (levelNumber)
         {
             case 1:
                 waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity;
-                if (waveType == 2)
+                if (waveNumber == 2)
                 {
                     wallVelocity = 10f;
                     startingDistance = 24f;
@@ -55,32 +55,34 @@ public class OneWayPattern : WallPattern
                 }
                 break;
             case 2:
-                if (waveType == 1)
+                switch(waveNumber)
                 {
-                    wallVelocity = 14f;
-                    startingDistance = 30f;
-                    waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity + 1;
-                    StandardPattern();
-                    for (int i = 0; i < movingWalls.Length; i++)
-                    {
-                        movingWalls[i].particles.transform.localPosition = new Vector3(4f, movingWalls[i].particles.transform.localPosition.y, wallVelocity * 1.5f);
-                    }
-                }
-                else if (waveType == 2)
-                {
-                    wallVelocity = 7f;
-                    startingDistance = 30f;
-                    distanceBetweenWalls = 16f;
-                    waveDuration = (startingDistance + movingWalls.Length / 2 * distanceBetweenWalls) / wallVelocity + 1; 
-                    StandardPattern();
-                }
-                else if (waveType ==3)
-                {
-                    wallVelocity = 7f;
-                    startingDistance = 30f;
-                    distanceBetweenWalls = 16f;
-                    waveDuration = (startingDistance + movingWalls.Length / 2 * distanceBetweenWalls) / wallVelocity + 1;
-                    StandardPattern();
+                    case 1:
+                        wallVelocity = 14f;
+                        startingDistance = 30f;
+                        waveDuration = (startingDistance + movingWalls.Length * distanceBetweenWalls) / wallVelocity + 1;
+                        StandardPattern();
+                        for (int i = 0; i < movingWalls.Length; i++)
+                        {
+                            movingWalls[i].particles.transform.localPosition = new Vector3(4f, movingWalls[i].particles.transform.localPosition.y, wallVelocity * 1.5f);
+                        }
+                        break;
+                    case 2:
+                        wallVelocity = 7f;
+                        startingDistance = 30f;
+                        distanceBetweenWalls = 16f;
+                        waveDuration = (startingDistance + movingWalls.Length / 2 * distanceBetweenWalls) / wallVelocity + 1;
+                        StandardPattern();
+                        break;
+                    case 3:
+                        wallVelocity = 7f;
+                        startingDistance = 30f;
+                        distanceBetweenWalls = 16f;
+                        waveDuration = (startingDistance + movingWalls.Length / 2 * distanceBetweenWalls) / wallVelocity + 1;
+                        StandardPattern();
+                        break;
+                    default:
+                        break;
                 }
                 break;
             default:
@@ -109,7 +111,7 @@ public class OneWayPattern : WallPattern
             new Vector3(90, -90, 0)
         };
 
-        if (waveNumber == 2 && waveType == 2)
+        if (levelNumber == 2 && waveNumber == 2)
         {
             for (int i = 0; i < movingWalls.Length; i++)
             {
@@ -131,7 +133,7 @@ public class OneWayPattern : WallPattern
                 }
             }
         }
-        else if (waveNumber == 2 && waveType == 3)
+        else if (levelNumber == 2 && waveNumber == 3)
         {
             startingEulers = new Vector3[] {
                 new Vector3(0, -90, 0),
@@ -214,17 +216,17 @@ public class OneWayPattern : WallPattern
 
     public override void WaveIsDone()
     {
-        if (waveNumber == 1)
+        if (levelNumber == 1)
         {
-            if (waveType == 1)
+            if (waveNumber == 1)
             {
                 for (int i = 0; i < 4; i++)
                 {
                     movingWalls[i].guidingHand.SetActive(false);
                 }
             }
-            waveType++;
-            if (waveType >= 3)
+            waveNumber++;
+            if (waveNumber >= 3)
             {
                 isCurrentPattern = false;
                 patternManager.EndWave1();
@@ -236,8 +238,8 @@ public class OneWayPattern : WallPattern
         }
         else
         {
-            waveType++;
-            if (waveType >= 4)
+            waveNumber++;
+            if (waveNumber >= 4)
             {
                 isCurrentPattern = false;
                 base.WaveIsDone();

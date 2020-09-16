@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class WallPattern : MonoBehaviour
 {
-    public int waveNumber;
+    public int levelNumber;
     public PatternManager patternManager;
     public MovingWallBehavior[] movingWalls;
     public Vector3 defaultWallPosition = new Vector3(16, 0, 0);
@@ -65,7 +65,7 @@ public class WallPattern : MonoBehaviour
     public virtual void Activate(int waveNumber, MovingWallBehavior[] movingWalls, Vector3 defaultPosition, float startingDistance, float distanceBetweenWalls, PatternManager patternManager, float wallSpeed)
     {
         isCurrentPattern = true;
-        this.waveNumber = waveNumber;
+        this.levelNumber = waveNumber;
         this.movingWalls = movingWalls;
         this.defaultWallPosition = defaultPosition;
         this.startingDistance = startingDistance;
@@ -78,7 +78,7 @@ public class WallPattern : MonoBehaviour
     public virtual void Activate(int waveNumber, MovingWallBehavior[] movingWalls, Vector3 defaultPosition, float startingDistance, PatternManager patternManager)
     {
         isCurrentPattern = true;
-        this.waveNumber = waveNumber;
+        this.levelNumber = waveNumber;
         this.movingWalls = movingWalls;
         this.defaultWallPosition = defaultPosition;
         this.startingDistance = startingDistance;
@@ -94,6 +94,6 @@ public class WallPattern : MonoBehaviour
     public virtual void WaveIsDone()
     {
         isCurrentPattern = false;
-        patternManager.WaveEnded(waveNumber);
+        patternManager.WaveEnded(levelNumber);
     }
 }

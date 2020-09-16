@@ -1330,7 +1330,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12218830ae7e61e40929dccbd06670ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveNumber: 0
+  levelNumber: 0
   patternManager: {fileID: 0}
   movingWalls: []
   defaultWallPosition: {x: 16, y: 0, z: 0}
@@ -1359,7 +1359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57b5370312917ed4d91c2e6fc344aaf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waveNumber: 3
+  levelNumber: 0
   patternManager: {fileID: 1146300303}
   movingWalls:
   - {fileID: 588973838}
@@ -1385,7 +1385,7 @@ MonoBehaviour:
   timePassed: 0
   levelText: {fileID: 0}
   waveText: {fileID: 0}
-  waveType: 0
+  waveNumber: 0
 --- !u!114 &1146300303
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1398,6 +1398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a8627ab23f46d40b8946069333aa4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelNumber: 1
   waveNumber: 1
   oneWayScript: {fileID: 1146300302}
   sinusScript: {fileID: 1146300301}
