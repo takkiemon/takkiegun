@@ -28,9 +28,9 @@ public class GameControllerEditor : Editor
             gameControllerScript.PatternFour();
         }
 
-        DrawDefaultInspector();
+        EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
 
-        if (GUILayout.Button("test001"))
+        if (GUILayout.Button("Execute warpspeed effect"))
         {
             Debug.Log("testing 001");
         }
