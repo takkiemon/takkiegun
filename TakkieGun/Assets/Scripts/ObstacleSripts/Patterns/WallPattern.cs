@@ -101,4 +101,9 @@ public class WallPattern : MonoBehaviour
     {
 
     }
+
+    public void ResumeWave()
+    {
+
+    }
 }
