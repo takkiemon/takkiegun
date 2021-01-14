@@ -96,4 +96,9 @@ public class WallPattern : MonoBehaviour
         isCurrentPattern = false;
         patternManager.WaveEnded(levelNumber);
     }
+
+    public void PauseWave()
+    {
+
+    }
 }

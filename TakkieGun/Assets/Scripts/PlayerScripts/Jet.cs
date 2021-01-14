@@ -16,6 +16,8 @@ public class Jet : MonoBehaviour
     private ParticleSystem currentParticles;
     private GameObject parentObject;
 
+    public AudioSource thrustContinuousSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -37,6 +39,16 @@ public class Jet : MonoBehaviour
         {
             if (!currentParticles.isStopped)
                 currentParticles.Stop();
+        }
+
+        if (Input.GetButtonDown(inputName))
+        {
+            thrustContinuousSound.Play();
+        }
+
+        if (Input.GetButtonUp(inputName))
+        {
+            thrustContinuousSound.Stop();
         }
 
         if (isBroken && !isAlreadyBroken)
