@@ -5887,7 +5887,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 4e-45}
+  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -12434,6 +12434,11 @@ PrefabInstance:
         type: 3}
       propertyPath: shakeMagnitude
       value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
+      propertyPath: thrustingForce
+      value: 3600
       objectReference: {fileID: 0}
     - target: {fileID: 2670634866427907135, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}

@@ -60,7 +60,7 @@ public class Jet : MonoBehaviour
     void Shoot()
     {
         Vector3 shootingDirection = new Vector3(-gameObject.transform.localPosition.x, -gameObject.transform.localPosition.y, 0); // the direction is always opposite to the direction the barrel is facing
-        parentObject.GetComponent<Rigidbody>().AddForce(shootingDirection.normalized * thrustForce);
+        parentObject.GetComponent<Rigidbody>().AddForce(shootingDirection.normalized * thrustForce *Time.deltaTime);
     }
 
     public void Activate()
