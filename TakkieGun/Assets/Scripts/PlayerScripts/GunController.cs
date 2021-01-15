@@ -28,6 +28,7 @@ public class GunController : MonoBehaviour
     public float invincibleDuration;
     public float flashDelay;
     public Renderer[] gameMeshes;
+    public SpriteRenderer hatSprite;
     public Color invincibleColor;
     public Color[] normalColor;
 
@@ -132,19 +133,20 @@ public class GunController : MonoBehaviour
     {
         isInvincible = true;
         invincibleTimer = invincibleDuration;
-
+        float tempAlpha = hatSprite.color.a;
         while (invincibleTimer >= 0)
         {
-            Debug.Log("invincible: " + invincibleTimer);
             for (int i = 0; i < gameMeshes.Length; i++)
             {
                 gameMeshes[i].material.color = invincibleColor;
             }
+            hatSprite.color = new Color(hatSprite.color.r, hatSprite.color.g, hatSprite.color.b, 0f);
             yield return new WaitForSeconds(flashDelay);
             for (int i = 0; i < gameMeshes.Length; i++)
             {
                 gameMeshes[i].material.color = normalColor[i];
             }
+            hatSprite.color = new Color(hatSprite.color.r, hatSprite.color.g, hatSprite.color.b, tempAlpha);
             yield return new WaitForSeconds(flashDelay);
 
             invincibleTimer -= Time.deltaTime + flashDelay * 2;

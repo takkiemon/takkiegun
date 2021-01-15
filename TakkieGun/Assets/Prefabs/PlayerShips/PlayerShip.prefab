@@ -5022,6 +5022,7 @@ MonoBehaviour:
   - {fileID: 2099997894078368139}
   - {fileID: 2099997894173438109}
   - {fileID: 2099997893450532707}
+  hatSprite: {fileID: 324787958677993270}
   invincibleColor: {r: 1, g: 1, b: 1, a: 0}
   normalColor: []
   pauseScreen: {fileID: 0}
