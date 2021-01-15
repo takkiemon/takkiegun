@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 
@@ -30,6 +31,10 @@ public class GunController : MonoBehaviour
     public Color invincibleColor;
     public Color[] normalColor;
 
+    private bool gameIsPaused;
+    public GameObject pauseScreen;
+    public GameObject pauseAreYouSureScreen;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +51,7 @@ public class GunController : MonoBehaviour
             normalColor[i] = gameMeshes[i].material.color;
         }
         isInvincible = false;
+        gameIsPaused = false;
     }
 
     public void thrustersSetup()
@@ -68,7 +74,58 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetButtonDown("Pause"))
+        {
+            if (gameIsPaused)
+            {
+                PauseGame(false);
+            }
+            else
+            {
+                PauseGame(true);
+            }
+        }
+    }
 
+    public void SetTimeScale(float scale)
+    {
+        Time.timeScale = scale;
+    }
+
+    public void PauseGame(bool gameIsSetToPaused)
+    {
+        gameIsPaused = gameIsSetToPaused;
+        foreach (Jet jet in thrusters)
+        {
+            jet.gameIsPaused = gameIsSetToPaused;
+        }
+        if (gameIsPaused)
+        {
+            SetTimeScale(0f);
+        }
+        else
+        {
+            SetTimeScale(1f);
+        }
+        pauseScreen.SetActive(gameIsSetToPaused);
+    }
+
+    public void LeaveWarning()
+    {
+        pauseAreYouSureScreen.SetActive(true);
+    }
+
+    public void CancelLeaving()
+    {
+        pauseAreYouSureScreen.SetActive(false);
+    }
+
+    public void GoToMainMenu()
+    {
+        pauseAreYouSureScreen.SetActive(false);
+        pauseScreen.SetActive(false);
+        PauseGame(false);
+        SceneManager.LoadScene("MainMenu", LoadSceneMode.Single);
     }
 
     public IEnumerator StartInvincibility()

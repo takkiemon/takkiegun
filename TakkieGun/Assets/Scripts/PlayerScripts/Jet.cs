@@ -17,6 +17,7 @@ public class Jet : MonoBehaviour
     private GameObject parentObject;
 
     public AudioSource thrustContinuousSound;
+    public bool gameIsPaused;
 
     // Start is called before the first frame update
     void Start()
@@ -41,12 +42,12 @@ public class Jet : MonoBehaviour
                 currentParticles.Stop();
         }
 
-        if (Input.GetButtonDown(inputName))
+        if (Input.GetButtonDown(inputName) && !gameIsPaused)
         {
             thrustContinuousSound.Play();
         }
 
-        if (Input.GetButtonUp(inputName))
+        if (Input.GetButtonUp(inputName) || gameIsPaused)
         {
             thrustContinuousSound.Stop();
         }
