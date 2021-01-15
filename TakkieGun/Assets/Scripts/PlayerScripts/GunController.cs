@@ -22,6 +22,14 @@ public class GunController : MonoBehaviour
     public CameraController cameraObject;
     public float shakeDuration, shakeMagnitude;
 
+    private bool isInvincible;
+    private float invincibleTimer;
+    public float invincibleDuration;
+    public float flashDelay;
+    public Renderer[] gameMeshes;
+    public Color invincibleColor;
+    public Color[] normalColor;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -31,6 +39,13 @@ public class GunController : MonoBehaviour
 
         collidingBodies = new List<Rigidbody>();
         gravityVector = new Vector3(0, 0, 0);
+        invincibleTimer = invincibleDuration;
+        normalColor = new Color[gameMeshes.Length];
+        for (int i = 0; i < gameMeshes.Length; i++)
+        {
+            normalColor[i] = gameMeshes[i].material.color;
+        }
+        isInvincible = false;
     }
 
     public void thrustersSetup()
@@ -39,7 +54,6 @@ public class GunController : MonoBehaviour
         thrusters[1].inputName = "Move Up"; // green
         thrusters[2].inputName = "Move Left"; // blue
         thrusters[3].inputName = "Move Right"; // yellow
-
 
         SetAxisThrusters();
     }
@@ -55,6 +69,30 @@ public class GunController : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public IEnumerator StartInvincibility()
+    {
+        isInvincible = true;
+        invincibleTimer = invincibleDuration;
+
+        while (invincibleTimer >= 0)
+        {
+            Debug.Log("invincible: " + invincibleTimer);
+            for (int i = 0; i < gameMeshes.Length; i++)
+            {
+                gameMeshes[i].material.color = invincibleColor;
+            }
+            yield return new WaitForSeconds(flashDelay);
+            for (int i = 0; i < gameMeshes.Length; i++)
+            {
+                gameMeshes[i].material.color = normalColor[i];
+            }
+            yield return new WaitForSeconds(flashDelay);
+
+            invincibleTimer -= Time.deltaTime + flashDelay * 2;
+        }
+        isInvincible = false;
     }
 
     public void UpdateLifeText()
@@ -101,12 +139,13 @@ public class GunController : MonoBehaviour
 
     public void OnHit(Collider killerObject)
     {
-        if (killerObject.gameObject.GetComponentInParent<MovingWallBehavior>() && collidingBodies.Count >= 2)
+        if (!isInvincible && killerObject.gameObject.GetComponentInParent<MovingWallBehavior>() && collidingBodies.Count >= 2)
         {
             currentLives--;
             explosions.Emit(particleCount);
             damageSFX.Play();
             StartCoroutine(cameraObject.Shake(shakeDuration, shakeMagnitude));
+            StartCoroutine(StartInvincibility());
             if (currentLives <= 0)
             {
                 currentLives = maxLives;
