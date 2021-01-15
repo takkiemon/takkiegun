@@ -17,16 +17,7 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isShaking)
-        {
 
-        }
-    }
-
-    void StopShaking()
-    {
-        isShaking = false;
-        transform.position = normalPosition;
     }
 
     public IEnumerator Shake (float duration, float magnitude)
