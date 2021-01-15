@@ -779,6 +779,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!82 &502204746 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5287006329817557659, guid: 267a4fe9a172adb49936184e07201fd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2670634865681600652}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &575921306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12408,28 +12414,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
-      propertyPath: fuelText
-      value: 
-      objectReference: {fileID: 489056737}
-    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
-        type: 3}
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 489056737}
     - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
+      propertyPath: damageSFX
+      value: 
+      objectReference: {fileID: 502204746}
+    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
       propertyPath: patternManager
       value: 
       objectReference: {fileID: 1146300303}
-    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
-        type: 3}
-      propertyPath: thrustingForce
-      value: 24
-      objectReference: {fileID: 0}
     - target: {fileID: 2670634866427907135, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
       propertyPath: m_Name
       value: PlayerShip
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287006329817557659, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
+      propertyPath: m_Pitch
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287006329817557659, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5287006329817557659, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 267a4fe9a172adb49936184e07201fd2, type: 3}

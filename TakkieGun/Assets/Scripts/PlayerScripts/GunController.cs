@@ -16,12 +16,16 @@ public class GunController : MonoBehaviour
 
     public List<Rigidbody> collidingBodies;
     public PatternManager patternManager;
+    public ParticleSystem explosions;
+    public int particleCount;
+    public AudioSource damageSFX;
 
     // Start is called before the first frame update
     void Start()
     {
         ApplySettings();
         thrustersSetup();
+        UpdateLifeText();
 
         collidingBodies = new List<Rigidbody>();
         gravityVector = new Vector3(0, 0, 0);
@@ -48,12 +52,24 @@ public class GunController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UpdateLifeText();
+
     }
 
-    void UpdateLifeText()
+    public void UpdateLifeText()
     {
         lifeText.text = "Lives: " + currentLives + "/" + maxLives;
+        if (currentLives >= maxLives)
+        {
+            lifeText.color = Color.green;
+        }
+        if (currentLives < maxLives)
+        {
+            lifeText.color = Color.yellow;
+        }
+        if (currentLives * 3 <= maxLives)
+        {
+            lifeText.color = Color.red;
+        }
     }
 
     public void SetAxisThrusters()
@@ -81,27 +97,21 @@ public class GunController : MonoBehaviour
         }
     }
 
-    public void OnDeathTrigger(Collider killerObject)
+    public void OnHit(Collider killerObject)
     {
-        currentLives--;
-        if (currentLives >= maxLives)
+        if (killerObject.gameObject.GetComponentInParent<MovingWallBehavior>() && collidingBodies.Count >= 2)
         {
-            lifeText.color = Color.green;
+            currentLives--;
+            explosions.Emit(particleCount);
+            damageSFX.Play();
+            if (currentLives <= 0)
+            {
+                currentLives = maxLives;
+                patternManager.StartPattern(patternManager.levelNumber);
+            }
+            // maybe add a foreach() where I can make it debug something along the lines of "you were hit by object A and object B and object C." etc. where all the colliders that are stored in the list will be spelled out.
+            UpdateLifeText();
         }
-        if (currentLives < maxLives)
-        {
-            lifeText.color = Color.yellow;
-        }
-        if (currentLives * 3 <= maxLives)
-        {
-            lifeText.color = Color.red;
-        }
-        if (currentLives <= 0)
-        {
-            currentLives = maxLives;
-            patternManager.StartPattern(patternManager.levelNumber);
-        }
-        // maybe add a foreach() where I can make it debug something along the lines of "you were hit by object A and object B and object C." etc. where all the colliders that are stored in the list will be spelled out.
     }
 
     private void OnCollisionEnter(Collision collision)

@@ -21,6 +21,6 @@ public class DeathColliderBehavior : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        playerObject.OnDeathTrigger(other);
+        playerObject.OnHit(other);
     }
 }
