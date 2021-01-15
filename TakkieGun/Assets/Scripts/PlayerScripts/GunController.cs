@@ -19,6 +19,8 @@ public class GunController : MonoBehaviour
     public ParticleSystem explosions;
     public int particleCount;
     public AudioSource damageSFX;
+    public CameraController cameraObject;
+    public float shakeDuration, shakeMagnitude;
 
     // Start is called before the first frame update
     void Start()
@@ -104,6 +106,7 @@ public class GunController : MonoBehaviour
             currentLives--;
             explosions.Emit(particleCount);
             damageSFX.Play();
+            StartCoroutine(cameraObject.Shake(shakeDuration, shakeMagnitude));
             if (currentLives <= 0)
             {
                 currentLives = maxLives;

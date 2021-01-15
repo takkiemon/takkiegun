@@ -6209,12 +6209,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3e90988d88861524e9e6d635b8facab2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 1468849336}
-  easingSpeed: 100
-  cameraOffset: {x: 0, y: 0, z: 0}
-  freezeX: 1
-  freezeY: 1
-  freezeZ: 1
 --- !u!114 &1004937960 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5662750230997640864, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
@@ -7086,12 +7080,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1464615750}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1468849336 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2670634866427907124, guid: 267a4fe9a172adb49936184e07201fd2,
-    type: 3}
-  m_PrefabInstance: {fileID: 2670634865681600652}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1687139416
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12414,6 +12402,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
+      propertyPath: camera
+      value: 
+      objectReference: {fileID: 963194229}
+    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
       propertyPath: lifeText
       value: 
       objectReference: {fileID: 489056737}
@@ -12424,9 +12417,24 @@ PrefabInstance:
       objectReference: {fileID: 502204746}
     - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
+      propertyPath: cameraObject
+      value: 
+      objectReference: {fileID: 963194229}
+    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
+      propertyPath: shakeDuration
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
       propertyPath: patternManager
       value: 
       objectReference: {fileID: 1146300303}
+    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
+      propertyPath: shakeMagnitude
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 2670634866427907135, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
       propertyPath: m_Name

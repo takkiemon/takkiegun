@@ -4,33 +4,47 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform playerTransform;
-    public float easingSpeed = 10f;
-    public Vector3 cameraOffset;
+    private Vector3 normalPosition;
+    private bool isShaking = false;
+    private float elapsed;
+    private float x, y;
 
-    public bool freezeX = false;
-    public bool freezeY = false;
-    public bool freezeZ = true;
+    private void Start()
+    {
+        normalPosition = transform.position;
+    }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
-        Vector3 targetPosition = playerTransform.position + cameraOffset;
-        Vector3 smoothedPosition = transform.position;
-        if (!freezeX)
+        if (isShaking)
         {
-            smoothedPosition.x = Vector3.Lerp(transform.position, targetPosition, easingSpeed * Time.deltaTime).x;
-        }
-        if (!freezeY)
-        {
-            smoothedPosition.y = Vector3.Lerp(transform.position, targetPosition, easingSpeed * Time.deltaTime).y;
-        }
-        if (!freezeZ)
-        {
-            smoothedPosition.z = Vector3.Lerp(transform.position, targetPosition, easingSpeed * Time.deltaTime).z;
-        }
-        transform.position = smoothedPosition;
 
-        //transform.LookAt(playerTransform);
+        }
+    }
+
+    void StopShaking()
+    {
+        isShaking = false;
+        transform.position = normalPosition;
+    }
+
+    public IEnumerator Shake (float duration, float magnitude)
+    {
+        elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            x = Random.Range(-1f, 1f) * magnitude;
+            y = Random.Range(-1f, 1f) * magnitude;
+
+            transform.localPosition = new Vector3(x, y, normalPosition.z);
+
+            elapsed += Time.deltaTime;
+
+            yield return null;
+        }
+
+        transform.localPosition = normalPosition;
     }
 }
