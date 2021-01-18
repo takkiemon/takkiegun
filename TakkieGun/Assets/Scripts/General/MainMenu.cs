@@ -10,6 +10,9 @@ public class MainMenu : MonoBehaviour
     public GameObject TutorialPanel001;
     public GameObject TutorialPanel002;
 
+    public GameObject startButton;
+    public GameObject quitButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,7 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        SceneManager.LoadScene("Level1", LoadSceneMode.Single);
+        OpenIntroduction(true);
     }
 
     public void QuitGame()
@@ -40,6 +43,7 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
+            OpenTutorial001(true);
             IntroPanel.SetActive(false);
         }
     }
@@ -64,6 +68,9 @@ public class MainMenu : MonoBehaviour
         }
         else
         {
+            startButton.SetActive(false);
+            quitButton.SetActive(false);
+            SceneManager.LoadScene("Level1", LoadSceneMode.Single);
             TutorialPanel002.SetActive(false);
         }
     }
