@@ -154,6 +154,28 @@ public class GunController : MonoBehaviour
         isInvincible = false;
     }
 
+    public IEnumerator DyingAnimation()
+    {
+        patternManager.StopAllWaves();
+        isInvincible = true;
+        int explosionAmount = 5;
+        for (int i = 0; i < explosionAmount; i++)
+        {
+            Time.timeScale = (float)(explosionAmount - i) / (float)explosionAmount;
+            explosions.Emit(particleCount);
+            damageSFX.Play();
+            StartCoroutine(cameraObject.Shake(shakeDuration, shakeMagnitude));
+            explosions.Emit(particleCount);
+            yield return new WaitForSeconds(.4f);
+        }
+        Time.timeScale = 1f;
+        isInvincible = false;
+        currentLives = maxLives;
+        // insert better transition
+        patternManager.StartPattern(patternManager.levelNumber);
+        UpdateLifeText();
+    }
+
     public void UpdateLifeText()
     {
         lifeText.text = "Lives: " + currentLives + "/" + maxLives;
@@ -207,8 +229,7 @@ public class GunController : MonoBehaviour
             StartCoroutine(StartInvincibility());
             if (currentLives <= 0)
             {
-                currentLives = maxLives;
-                patternManager.StartPattern(patternManager.levelNumber);
+                StartCoroutine(DyingAnimation());
             }
             // maybe add a foreach() where I can make it debug something along the lines of "you were hit by object A and object B and object C." etc. where all the colliders that are stored in the list will be spelled out.
             UpdateLifeText();
