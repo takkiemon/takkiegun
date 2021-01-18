@@ -29,12 +29,14 @@ public class GunController : MonoBehaviour
     public float flashDelay;
     public Renderer[] gameMeshes;
     public SpriteRenderer hatSprite;
+    public Image fadeToBlackScreen;
     public Color invincibleColor;
     public Color[] normalColor;
 
     private bool gameIsPaused;
     public GameObject pauseScreen;
     public GameObject pauseAreYouSureScreen;
+    private bool gameIsFading;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +55,7 @@ public class GunController : MonoBehaviour
         }
         isInvincible = false;
         gameIsPaused = false;
+        gameIsFading = false;
     }
 
     public void thrustersSetup()
@@ -161,6 +164,12 @@ public class GunController : MonoBehaviour
         int explosionAmount = 5;
         for (int i = 0; i < explosionAmount; i++)
         {
+            /*
+            if (i >= explosionAmount - 1 && !gameIsFading)
+            {
+                StartCoroutine(FadeScreen(1.2f, true));
+            }
+            */
             Time.timeScale = (float)(explosionAmount - i) / (float)explosionAmount;
             explosions.Emit(particleCount);
             damageSFX.Play();
@@ -172,8 +181,36 @@ public class GunController : MonoBehaviour
         isInvincible = false;
         currentLives = maxLives;
         // insert better transition
-        patternManager.StartPattern(patternManager.levelNumber);
+        patternManager.StopAllWaves();
         UpdateLifeText();
+        //patternManager.StartPattern(patternManager.levelNumber);
+        fadeToBlackScreen.color = new Color(0f, 0f, 0f, 0f);
+    }
+
+    public IEnumerator FadeScreen(float secondsToFade, bool fadeToBlack)
+    {
+        gameIsFading = true;
+        float fadeTimer = 0f;
+        float fadeDirection; // this determines whether the alpha value goes up or down, depending on whether it fades into or out of black
+        if (fadeToBlack)
+        {
+            fadeDirection = 1f;
+            fadeToBlackScreen.color = new Color(0f, 0f, 0f, 0f);
+        }
+        else // if it fades from black into the screen
+        {
+            fadeDirection = -1f;
+            fadeToBlackScreen.color = new Color(0f, 0f, 0f, 255f);
+        }
+
+        while (fadeTimer < secondsToFade)
+        {
+            Debug.Log("fadeTimer: \t(" + fadeTimer + "/" + secondsToFade + ").");
+            fadeTimer += secondsToFade / 10f;
+            fadeToBlackScreen.color = new Color(0f, 0f, 0f, fadeTimer / secondsToFade );
+            yield return new WaitForSeconds(secondsToFade / 10f);
+        }
+        gameIsFading = false;
     }
 
     public void UpdateLifeText()
