@@ -9,9 +9,11 @@ public class MainMenu : MonoBehaviour
     public GameObject IntroPanel;
     public GameObject TutorialPanel001;
     public GameObject TutorialPanel002;
+    public GameObject CreditsPanel;
 
     public GameObject startButton;
     public GameObject quitButton;
+    public GameObject creditsButton;
 
     // Start is called before the first frame update
     void Start()
@@ -70,8 +72,21 @@ public class MainMenu : MonoBehaviour
         {
             startButton.SetActive(false);
             quitButton.SetActive(false);
+            creditsButton.SetActive(false);
             SceneManager.LoadScene("Level1", LoadSceneMode.Single);
             TutorialPanel002.SetActive(false);
+        }
+    }
+
+    public void OpenCredits(bool opening)
+    {
+        if (opening)
+        {
+            CreditsPanel.SetActive(true);
+        }
+        else
+        {
+            CreditsPanel.SetActive(false);
         }
     }
 }

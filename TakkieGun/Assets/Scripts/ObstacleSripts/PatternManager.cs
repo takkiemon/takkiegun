@@ -20,9 +20,14 @@ public class PatternManager : MonoBehaviour
 
     private Vector3 defaultWallPosition;
 
+    public GameObject victoryPanel;
+    public AudioSource normalMusic;
+    public AudioSource victoryMusic;
+
     // Start is called before the first frame update
     void Start()
     {
+        victoryPanel.SetActive(false);
         defaultWallPosition = new Vector3(16, 0, 10);
         StartPattern(levelNumber);
     }
@@ -60,6 +65,9 @@ public class PatternManager : MonoBehaviour
                 break;
             case 4:
                 levelText.text = "No more waves :( \n You have beaten the game.";
+                victoryPanel.SetActive(true);
+                normalMusic.Stop();
+                victoryMusic.Play();
                 break;
             case 5:
                 levelText.text = "No more waves :( \n You have beaten the game.";
