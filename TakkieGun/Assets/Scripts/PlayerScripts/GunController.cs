@@ -29,7 +29,7 @@ public class GunController : MonoBehaviour
     public float flashDelay;
     public Renderer[] gameMeshes;
     public SpriteRenderer hatSprite;
-    public Image blackScreen;
+    public Image fadeToBlackScreen;
     public Color invincibleColor;
     public Color[] normalColor;
 
@@ -56,7 +56,6 @@ public class GunController : MonoBehaviour
         isInvincible = false;
         gameIsPaused = false;
         gameIsFading = false;
-        blackScreen.gameObject.SetActive(false);
     }
 
     public void thrustersSetup()
@@ -185,36 +184,33 @@ public class GunController : MonoBehaviour
         patternManager.StopAllWaves();
         UpdateLifeText();
         //patternManager.StartPattern(patternManager.levelNumber);
+        fadeToBlackScreen.color = new Color(0f, 0f, 0f, 0f);
     }
 
     public IEnumerator FadeScreen(float secondsToFade, bool fadeToBlack)
     {
         gameIsFading = true;
-        blackScreen.gameObject.SetActive(true);
         float fadeTimer = 0f;
         float fadeDirection; // this determines whether the alpha value goes up or down, depending on whether it fades into or out of black
-
         if (fadeToBlack)
         {
-            blackScreen.color = new Color(0f, 0f, 0f, 0f);
             fadeDirection = 1f;
+            fadeToBlackScreen.color = new Color(0f, 0f, 0f, 0f);
         }
         else // if it fades from black into the screen
         {
-            blackScreen.color = new Color(0f, 0f, 0f, 255f);
             fadeDirection = -1f;
+            fadeToBlackScreen.color = new Color(0f, 0f, 0f, 255f);
         }
-        float startingAlpha = blackScreen.color.a;
 
         while (fadeTimer < secondsToFade)
         {
-            fadeTimer += Time.deltaTime;
-            blackScreen.color = new Color(0f, 0f, 0f, startingAlpha + (fadeTimer / secondsToFade * 255f * fadeDirection));
-            Debug.Log("fadeTimer: \t(" + fadeTimer + "/" + secondsToFade + ").\tblackScreen.color: (R: " + blackScreen.color.r + "\tG: " + blackScreen.color.g + "\tB: " + blackScreen.color.b + "\tA: " + blackScreen.color.a + ".");
-            yield return null;
+            Debug.Log("fadeTimer: \t(" + fadeTimer + "/" + secondsToFade + ").");
+            fadeTimer += secondsToFade / 10f;
+            fadeToBlackScreen.color = new Color(0f, 0f, 0f, fadeTimer / secondsToFade );
+            yield return new WaitForSeconds(secondsToFade / 10f);
         }
         gameIsFading = false;
-        
     }
 
     public void UpdateLifeText()

@@ -31,21 +31,21 @@ public class GameController : MonoBehaviour
     }
     public void PatternOne()
     {
-        StartCoroutine(patternManager.StartPattern(1));
+        patternManager.StartPattern(1);
     }
 
     public void PatternTwo()
     {
-        StartCoroutine(patternManager.StartPattern(2));
+        patternManager.StartPattern(2);
     }
 
     public void PatternThree()
     {
-        StartCoroutine(patternManager.StartPattern(3));
+        patternManager.StartPattern(3);
     }
 
     public void PatternFour()
     {
-        StartCoroutine(patternManager.StartPattern(4));
+        patternManager.StartPattern(4);
     }
 }
