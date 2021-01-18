@@ -218,13 +218,6 @@ public class OneWayPattern : WallPattern
     {
         if (levelNumber == 1)
         {
-            if (waveNumber == 1)
-            {
-                for (int i = 0; i < 4; i++)
-                {
-                    movingWalls[i].guidingHand.SetActive(false);
-                }
-            }
             waveNumber++;
             if (waveNumber >= 3)
             {

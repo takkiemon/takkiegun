@@ -158,10 +158,6 @@ public class PatternManager : MonoBehaviour
         {
             tempMovingWalls[i] = movingWalls[i];
         }
-        for (int i = 0; i < 4; i++)
-        {
-            movingWalls[i].guidingHand.SetActive(true);
-        }
         oneWayScript.waveNumber = 1;
         oneWayScript.levelText = levelText;
         oneWayScript.waveText = waveText;
@@ -170,10 +166,6 @@ public class PatternManager : MonoBehaviour
 
     public void EndWave1()
     {
-        for (int i = 0; i < 4; i++)
-        {
-            movingWalls[i].guidingHand.SetActive(false);
-        }
         Debug.Log("Wave 1 has ended.");
         oneWayScript.isCurrentPattern = false;
         WaveEnded(levelNumber);

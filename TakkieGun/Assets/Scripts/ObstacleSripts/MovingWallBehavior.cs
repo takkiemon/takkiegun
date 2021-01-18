@@ -6,7 +6,6 @@ using static UnityEngine.ParticleSystem;
 public class MovingWallBehavior : MonoBehaviour
 {
     public GameObject[] wallPartitions = new GameObject[2];
-    public GameObject guidingHand;
     public GameObject particles;
     Rigidbody tempRB;
 
