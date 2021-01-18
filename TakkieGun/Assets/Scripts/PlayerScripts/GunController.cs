@@ -164,12 +164,6 @@ public class GunController : MonoBehaviour
         int explosionAmount = 5;
         for (int i = 0; i < explosionAmount; i++)
         {
-            /*
-            if (i >= explosionAmount - 1 && !gameIsFading)
-            {
-                StartCoroutine(FadeScreen(1.2f, true));
-            }
-            */
             Time.timeScale = (float)(explosionAmount - i) / (float)explosionAmount;
             explosions.Emit(particleCount);
             damageSFX.Play();
@@ -181,10 +175,9 @@ public class GunController : MonoBehaviour
         isInvincible = false;
         currentLives = maxLives;
         // insert better transition
-        patternManager.StopAllWaves();
         UpdateLifeText();
-        //patternManager.StartPattern(patternManager.levelNumber);
-        fadeToBlackScreen.color = new Color(0f, 0f, 0f, 0f);
+        patternManager.StartPattern(patternManager.levelNumber);
+        //fadeToBlackScreen.color = new Color(0f, 0f, 0f, 0f);
     }
 
     public IEnumerator FadeScreen(float secondsToFade, bool fadeToBlack)
