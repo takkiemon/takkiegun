@@ -6269,7 +6269,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 9e-44, z: 0, w: 9e-44}
+  m_BoundingSphereOverride: {x: NaN, y: NaN, z: NaN, w: NaN}
   m_UseBoundingSphereOverride: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
@@ -7297,6 +7297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49a8627ab23f46d40b8946069333aa4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerShip: {fileID: 2670634865681600653}
   levelNumber: 1
   waveNumber: 1
   oneWayScript: {fileID: 1146300302}
@@ -7902,7 +7903,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1453963652
 RectTransform:
   m_ObjectHideFlags: 0
@@ -13799,6 +13800,11 @@ PrefabInstance:
       propertyPath: flashDelay
       value: 0.25
       objectReference: {fileID: 0}
+    - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
+        type: 3}
+      propertyPath: blackScreen
+      value: 
+      objectReference: {fileID: 1453963653}
     - target: {fileID: 2670634866427907128, guid: 267a4fe9a172adb49936184e07201fd2,
         type: 3}
       propertyPath: pauseScreen

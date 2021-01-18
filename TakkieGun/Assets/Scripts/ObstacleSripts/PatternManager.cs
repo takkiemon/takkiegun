@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class PatternManager : MonoBehaviour
 {
+    public GunController playerShip;
+
     public int levelNumber;
     public int waveNumber;
 
@@ -24,7 +26,7 @@ public class PatternManager : MonoBehaviour
     void Start()
     {
         defaultWallPosition = new Vector3(16, 0, 10);
-        StartPattern(levelNumber);
+        StartCoroutine(StartPattern(levelNumber));
     }
 
     // Update is called once per frame
@@ -40,10 +42,12 @@ public class PatternManager : MonoBehaviour
 
     }
 
-    public void StartPattern(int waveNumber) // remove?
+    public IEnumerator StartPattern(int waveNumber) // remove?
     {
+        StartCoroutine(playerShip.FadeScreen(2f, false));
         this.levelNumber = waveNumber;
         levelText.text = "Level " + waveNumber + "\nWave 1";
+        yield return new WaitForSeconds(1f);
         switch (waveNumber)
         {
             case 0:
@@ -146,7 +150,7 @@ public class PatternManager : MonoBehaviour
         // some feedback for between waves
         // after the feedback and stuff, start next wave
         StopAllWaves();
-        StartPattern(waveNumber + 1);
+        StartCoroutine(StartPattern(waveNumber + 1));
     }
 
     public void StartWave1() //create a function that will start waves. I'm not sure yet how I'm going to spread the patterns between the wave types that I have thought of 
@@ -236,5 +240,10 @@ public class PatternManager : MonoBehaviour
     {
         oneWayScript.isCurrentPattern = false;
         sinusScript.isCurrentPattern = false;
+    }
+
+    public void PauseCurrentWave()
+    {
+
     }
 }
