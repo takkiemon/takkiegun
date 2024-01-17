@@ -5255,6 +5255,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThrusterGREEN
       objectReference: {fileID: 0}
+    - target: {fileID: 4113496527292785215, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134991242572196310, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056458476100198253, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5368491a98c83f6459b79ae7f342713d, type: 3}
 --- !u!114 &116760647639279212 stripped
@@ -5363,6 +5378,21 @@ PrefabInstance:
       propertyPath: startDelay.scalar
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4113496527292785215, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134991242572196310, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056458476100198253, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5368491a98c83f6459b79ae7f342713d, type: 3}
 --- !u!114 &116760647543431034 stripped
@@ -5461,6 +5491,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ThrusterRED
       objectReference: {fileID: 0}
+    - target: {fileID: 4113496527292785215, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134991242572196310, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056458476100198253, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5368491a98c83f6459b79ae7f342713d, type: 3}
 --- !u!4 &2099997894703855831 stripped
@@ -5558,6 +5603,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ThrusterYELLOW
+      objectReference: {fileID: 0}
+    - target: {fileID: 4113496527292785215, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6134991242572196310, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9056458476100198253, guid: 5368491a98c83f6459b79ae7f342713d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5368491a98c83f6459b79ae7f342713d, type: 3}
