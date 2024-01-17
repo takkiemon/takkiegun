@@ -4896,7 +4896,7 @@ GameObject:
   - component: {fileID: 2670634866427907128}
   - component: {fileID: 2670634866427907125}
   m_Layer: 0
-  m_Name: PlayerShip
+  m_Name: HoshiShip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5023,6 +5023,7 @@ MonoBehaviour:
   - {fileID: 2099997894173438109}
   - {fileID: 2099997893450532707}
   hatSprite: {fileID: 324787958677993270}
+  fadeToBlackScreen: {fileID: 0}
   invincibleColor: {r: 1, g: 1, b: 1, a: 0}
   normalColor: []
   pauseScreen: {fileID: 0}
@@ -5171,7 +5172,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 095f4c576f6031b4da285f5b52516572, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5b1e1f55e252eae469db68d3f675a0c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.85882354}
   m_FlipX: 0
   m_FlipY: 0
