@@ -158,6 +158,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.g
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -416,6 +426,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -910,7 +930,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b901bdee335a3704a8253763eca353dc, type: 2}
+  - {fileID: 2100000, guid: e89e5924d5c880b4d841d74f8ae939ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1006,6 +1026,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key2.g
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -1219,6 +1249,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -1341,6 +1381,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 0.5019608
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -7068,6 +7118,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.b
       value: 0.5019608
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -7612,7 +7672,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c41650a41c93954791810126c75abd3, type: 2}
+  - {fileID: 2100000, guid: 31a335a6561fdda439461997af5c1d73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7771,6 +7831,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 0.5019608
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -8008,6 +8078,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.b
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -8231,7 +8311,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b901bdee335a3704a8253763eca353dc, type: 2}
+  - {fileID: 2100000, guid: e89e5924d5c880b4d841d74f8ae939ed, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8617,6 +8697,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -8784,7 +8874,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3c41650a41c93954791810126c75abd3, type: 2}
+  - {fileID: 2100000, guid: 31a335a6561fdda439461997af5c1d73, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9004,6 +9094,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.g
       value: 0.5019608
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -9141,6 +9241,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
@@ -14457,6 +14567,16 @@ PrefabInstance:
       propertyPath: ColorModule.gradient.maxGradient.key1.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5311698759290358754, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
+    - target: {fileID: 5311698759458762246, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: cf70583df440c454e96c8829374308e4, type: 2}
     - target: {fileID: 5311698759841440732, guid: 4da42373ee6bbda4dbe55c93baa0ad64,
         type: 3}
       propertyPath: m_Name
